@@ -23,6 +23,14 @@ Open PVF package:
 PVF Utility -> 文件(F) -> 打开封包 -> Script.pvf
 ```
 
+If direct editing is unclear, use the export/edit/import workflow:
+
+```text
+PVF Utility exports full package
+Codex edits selected exported files
+PVF Utility imports changed files
+```
+
 Record:
 
 - original file path

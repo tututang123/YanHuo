@@ -21,6 +21,15 @@ Large tools or third-party executables should stay local only. This file records
 | --- | --- | --- | --- |
 | Script.pvf | `C:\Users\tutut\Desktop\70Release\91\yuan\Script.pvf` | Current client script package | Back up before modifying |
 
+## Local PVF Work Folders
+
+| Folder | Local Path | Purpose |
+| --- | --- | --- |
+| PVF export | `private/dnf-70/client-workspace/pvf-export` | Full exported `Script.pvf` contents |
+| PVF modified | `private/dnf-70/client-workspace/pvf-modified` | Files modified by Codex |
+| PVF import ready | `private/dnf-70/client-workspace/pvf-import-ready` | Changed files prepared for PVF Utility import |
+| PVF original backup | `private/dnf-70/client-backups/pvf-original` | Original `Script.pvf` backups |
+
 ## Tool Requirements
 
 ### PVF Utility 2020
@@ -33,6 +42,7 @@ Large tools or third-party executables should stay local only. This file records
 - Command line support: unknown
 - Launch method: double-click `pvfUtility.exe`
 - Open package: click menu `文件(F)` -> `打开封包` -> choose `Script.pvf`
+- Export/import workflow: export full package to local files, modify selected files, then import changed files back into PVF Utility
 - Built-in server: starts on port `27000`, supports third-party access
 - Known limitations: TBD after first real edit
 
@@ -48,7 +58,8 @@ Large tools or third-party executables should stay local only. This file records
 ## Missing Information To Fill Later
 
 - How to search specific client files inside PVF.
-- How to export modified files.
-- How to save/repack `Script.pvf`.
+- Exact menu name for exporting the whole package.
+- Exact menu name for importing changed files.
+- Exact menu name for saving/repacking `Script.pvf`.
 - Whether PVF Utility creates backup files automatically.
 - Which PVF paths map to skills, items, NPCs, dungeons, UI text, and quests.
