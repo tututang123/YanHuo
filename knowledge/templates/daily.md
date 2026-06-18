@@ -1,26 +1,26 @@
-# {{date}} Daily
+# {{date}} 日记 Daily
 
-## Capture
-
-- 
-
-## Work
+## 随手记录
 
 - 
 
-## Life
+## 工作
 
 - 
 
-## Learning
+## 生活
 
 - 
 
-## Questions
+## 学习
 
 - 
 
-## Tomorrow
+## 问题
+
+- 
+
+## 明天
 
 - 
 

@@ -1,34 +1,34 @@
-# Personal Knowledge System
+# 个人知识系统
 
-## Goal
+## 目标
 
-Build a lightweight knowledge system for recording and improving life, work, learning, and personal projects.
+建立一个轻量的知识系统，用来记录和提升生活、工作、学习和个人项目。
 
-## Why It Matters
+## 为什么重要
 
-The system should make daily thinking visible, turn experience into reusable knowledge, and help choose better next actions.
+这个系统应该让每天的思考变得可见，把经验沉淀成可复用知识，并帮助我选择更好的下一步行动。
 
-## Current Status
+## 当前状态
 
-Initial folder structure and templates created.
+初始目录结构和模板已创建。
 
-## Next Actions
+## 下一步行动
 
-- Use `00-inbox` for daily capture.
-- Review notes once per week.
-- Move useful repeated ideas into topic notes.
+- 用 `00-inbox` 做日常快速记录。
+- 每周整理一次笔记。
+- 把反复出现的想法沉淀成主题笔记。
 
-## Decisions
+## 决策
 
-- Keep raw capture and organized knowledge separate.
-- Prefer Markdown files with simple names.
-- Avoid complex tags until there is enough real content.
+- 原始记录和整理后的知识分开。
+- 优先使用 Markdown 文件和简单命名。
+- 在真实内容足够多之前，不引入复杂标签系统。
 
-## Notes
+## 备注
 
-- The system should stay easy enough to use on a tired day.
+- 这个系统应该简单到疲惫的时候也能用。
 
-## Review
+## 复盘
 
-Review after one week of real usage.
+真实使用一周后复查。
 

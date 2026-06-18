@@ -1,27 +1,27 @@
-# Local Runbook
+# 本地运行手册 Local Runbook
 
-Use this file after the project has runnable code or tools.
+项目有可运行代码或工具后，在这里记录启动、停止、备份和排错方法。
 
-## Start
-
-```text
-TBD
-```
-
-## Stop
+## 启动
 
 ```text
-TBD
+待补充
 ```
 
-## Backup
+## 停止
 
 ```text
-TBD
+待补充
 ```
 
-## Troubleshooting
+## 备份
 
-| Problem | Cause | Fix |
+```text
+待补充
+```
+
+## 排错
+
+| 问题 | 原因 | 处理方法 |
 | --- | --- | --- |
 

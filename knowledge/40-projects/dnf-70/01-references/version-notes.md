@@ -1,20 +1,20 @@
-# Version Notes
+# 版本说明 Version Notes
 
-Use this file to define what "early 70 version" means for this project.
+这里用来明确本项目里“早期 70 版本”到底指什么。
 
-## Version Boundary
+## 版本边界
 
-- Target version:
-- Region/server reference:
-- Approximate time period:
-- Included systems:
-- Excluded later systems:
+- 目标版本：
+- 参考区服：
+- 大致时间：
+- 包含系统：
+- 排除的后续版本系统：
 
-## Open Questions
+## 待确认问题
 
-- Which class awakenings are included?
-- Which dungeons and maps should exist?
-- Which equipment tiers should exist?
-- Which economy and enhancement systems should match this version?
-- Which UI style should be used?
+- 包含哪些职业和觉醒？
+- 包含哪些副本和地图？
+- 包含哪些装备等级和装备品级？
+- 强化、交易、经济系统按哪个时期？
+- 客户端 UI 风格按哪个时期？
 

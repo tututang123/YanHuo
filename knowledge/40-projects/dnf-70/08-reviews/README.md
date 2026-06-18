@@ -1,8 +1,8 @@
-# Reviews
+# 复盘 Reviews
 
-Use this folder for weekly reviews and milestone reviews.
+这里放周复盘、阶段复盘和里程碑复盘。
 
-Suggested file name:
+建议文件名：
 
 ```text
 2026-W25.md

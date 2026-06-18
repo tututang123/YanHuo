@@ -1,8 +1,8 @@
-# Changelog
+# 变更记录 Changelog
 
 ## 2026-06-18
 
-- Created DNF 70 project workspace.
-- Added initial documentation structure.
-- Added source, design, technical, development, asset, data, operation, review, and template folders.
+- 创建 DNF 70 项目工作区。
+- 添加初始文档结构。
+- 添加资料、设计、技术、开发、素材、数据、运维、复盘和模板目录。
 

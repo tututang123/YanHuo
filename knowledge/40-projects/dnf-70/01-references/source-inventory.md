@@ -1,14 +1,14 @@
-# Source Inventory
+# 资料来源清单 Source Inventory
 
-Track every material source here. This makes later development easier and avoids losing context.
+每一份资料都尽量记录来源。这样以后开发和校对时，不会丢上下文。
 
-| Date Added | Source Name | Type | Location | Reliability | Notes |
+| 添加日期 | 资料名称 | 类型 | 位置 | 可信度 | 备注 |
 | --- | --- | --- | --- | --- | --- |
-| 2026-06-18 | Initial project setup | note | `README.md` | high | Workspace created. |
+| 2026-06-18 | 初始项目搭建 | note | `README.md` | high | 项目工作区创建完成 |
 
-## Reliability Scale
+## 可信度说明
 
-- `high`: original file, official material, or verified by multiple sources.
-- `medium`: remembered or community-sourced, needs checking.
-- `low`: unverified or unclear origin.
+- `high`：原始文件、官方资料，或多来源验证过。
+- `medium`：玩家记忆、社区资料，需要继续核对。
+- `low`：来源不清楚或尚未验证。
 

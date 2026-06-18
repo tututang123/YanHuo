@@ -1,20 +1,20 @@
-# Risks
+# 风险 Risks
 
-## Legal and Compliance
+## 法律和合规
 
-- Avoid distributing copyrighted game assets publicly.
-- Keep private research materials local if ownership or permission is unclear.
-- Do not upload sensitive or questionable binaries to GitHub.
+- 不要公开分发有版权风险的游戏资源。
+- 所有权或授权不清楚的私密研究资料放本地。
+- 不要把敏感或来源不明的二进制上传 GitHub。
 
-## Technical
+## 技术风险
 
-- Source materials may conflict across versions.
-- Old data may be incomplete or unreliable.
-- Binary assets may need separate storage outside Git.
+- 不同版本资料可能互相冲突。
+- 旧数据可能不完整或不可靠。
+- 二进制资源可能需要独立存储，不能直接进 Git。
 
-## Project
+## 项目风险
 
-- Scope can grow too large.
-- Version boundary may be unclear.
-- Development may start before documentation is stable.
+- 范围容易变得过大。
+- 版本边界可能不清楚。
+- 文档尚未稳定时就开始开发，容易返工。
 

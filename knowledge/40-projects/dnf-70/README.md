@@ -1,43 +1,47 @@
-# DNF 70 Version Project
+# DNF 70 版本项目
 
-This project area is for collecting, organizing, and developing a DNF early 70-version related project.
+这个项目区用于收集、整理和开发 DNF 早期 70 版本相关资料。
 
-## Goal
+## 目标
 
-Build a maintainable knowledge and development workspace for DNF 70-version materials, design notes, technical research, assets, data, tasks, and future implementation work.
+建立一个可长期维护的 DNF 70 项目工作区，用来管理版本资料、玩法设计、技术研究、客户端修改、服务端运维、数据表、任务和后续开发工作。
 
-## Folder Map
+## 目录说明
 
-- `00-inbox`: raw materials and notes before sorting.
-- `01-references`: source materials, screenshots, links, extracted docs, original notes.
-- `02-design`: gameplay design, systems, classes, items, dungeons, economy, UI/UX notes.
-- `03-technical`: architecture, tech decisions, protocols, database, tools, setup docs.
-- `04-development`: implementation notes, milestones, changelog, bugs, task breakdown.
-- `05-assets`: asset inventory, image/audio/UI/resource notes. Put large binaries elsewhere if needed.
-- `06-data`: structured game data, tables, configs, schemas, mappings.
-- `07-operations`: deployment, local runbook, maintenance, accounts, server notes.
-- `08-reviews`: weekly reviews, milestone reviews, lessons learned.
-- `09-client-modding`: client editing tools, APIs, file maps, patch records, and runbooks.
-- `90-archive`: outdated or completed materials.
-- `templates`: reusable project templates.
+- `00-inbox`：临时收集区，未分类资料先放这里。
+- `01-references`：资料来源、版本说明、链接、截图索引、原始说明。
+- `02-design`：玩法设计、职业、技能、装备、副本、经济、UI 设计。
+- `03-technical`：架构、技术决策、数据库、协议、工具、风险。
+- `04-development`：开发计划、路线图、任务、变更记录、bug。
+- `05-assets`：素材清单、图片、音频、UI 资源索引。
+- `06-data`：职业、技能、道具、装备、副本、NPC、任务等结构化数据。
+- `07-operations`：部署、本地运行、维护、备份、日志排查、服务器操作。
+- `08-reviews`：周复盘、阶段复盘、经验总结。
+- `09-client-modding`：客户端工具、API、文件映射、补丁记录和操作手册。
+- `90-archive`：过期、完成或废弃资料归档。
+- `templates`：通用模板。
 
-## Daily Workflow
+## 日常维护流程
 
-1. Put new materials into `00-inbox`.
-2. Sort useful materials into `01-references`, `02-design`, `03-technical`, `05-assets`, or `06-data`.
-3. Record decisions in `03-technical/decisions.md` or `02-design/design-decisions.md`.
-4. Track work in `04-development/tasks.md`.
-5. Review progress weekly in `08-reviews`.
+1. 新资料先放入 `00-inbox`。
+2. 有用的资料再整理到 `01-references`、`02-design`、`03-technical`、`05-assets` 或 `06-data`。
+3. 设计决策写到 `02-design/design-decisions.md`。
+4. 技术决策写到 `03-technical/decisions.md`。
+5. 工作任务写到 `04-development/tasks.md`。
+6. 每周或每个阶段在 `08-reviews` 做复盘。
 
-## Current Status
+## 当前状态
 
-- Project workspace created.
-- Materials are ready to be added.
-- Development scope is not defined yet.
+- 项目工作区已创建。
+- DNF 70 资料可以开始持续补充。
+- 日志排查和客户端修改已经有初步流程。
+- 具体开发范围还需要继续明确。
 
-## Next Actions
+## 下一步
 
-- Add original DNF 70 materials into `00-inbox`.
-- Create a source inventory in `01-references/source-inventory.md`.
-- Define what this project will become: private server research, gameplay reconstruction, tool development, archive, or another direction.
-- Write the first milestone in `04-development/roadmap.md`.
+- 把原始 DNF 70 资料放到 `00-inbox`。
+- 在 `01-references/source-inventory.md` 记录资料来源。
+- 在 `01-references/version-notes.md` 明确“70 版本”的边界。
+- 明确本项目最终方向：资料库、工具开发、客户端改动、服务端维护，或完整开发项目。
+- 在 `04-development/roadmap.md` 里补充第一个里程碑。
+

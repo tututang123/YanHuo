@@ -1,11 +1,11 @@
-# Data Table
+# 数据表模板 Data Table
 
-## Purpose
-
-
-## Source
+## 用途
 
 
-| Field | Value | Status | Notes |
+## 来源
+
+
+| 字段 | 值 | 状态 | 备注 |
 | --- | --- | --- | --- |
 

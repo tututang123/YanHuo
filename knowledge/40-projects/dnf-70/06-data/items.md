@@ -1,5 +1,5 @@
-# Items
+# 道具 / 装备 Items
 
-| Item Name | Level | Rarity | Slot | Status | Source | Notes |
+| 道具名称 | 等级 | 品级 | 部位 | 状态 | 来源 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- |
 

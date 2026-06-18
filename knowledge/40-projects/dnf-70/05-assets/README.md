@@ -1,15 +1,15 @@
-# Assets
+# 素材 Assets
 
-Use this folder to index assets and asset-related notes.
+这里记录素材清单和素材相关说明。
 
-Avoid putting large binaries directly into Git unless they are small and clearly allowed to be stored.
+不要把大型二进制直接放进 Git，除非文件很小且确认可以保存。
 
-Suggested files:
+建议维护：
 
-- `asset-inventory.md`
-- `ui-assets.md`
-- `icons.md`
-- `sprites.md`
-- `audio.md`
-- `screenshots.md`
+- `asset-inventory.md`：素材清单。
+- `ui-assets.md`：UI 素材。
+- `icons.md`：图标。
+- `sprites.md`：精灵图。
+- `audio.md`：音频。
+- `screenshots.md`：截图索引。
 

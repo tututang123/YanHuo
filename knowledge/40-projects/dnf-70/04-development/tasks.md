@@ -1,28 +1,29 @@
-# Tasks
+# 任务 Tasks
 
-## Backlog
+## 待办 Backlog
 
-- [ ] Add all raw DNF 70 materials into `00-inbox`.
-- [ ] Fill `01-references/source-inventory.md`.
-- [ ] Define version boundary in `01-references/version-notes.md`.
-- [ ] List all known classes and class status.
-- [ ] List core dungeons for this version.
-- [ ] Decide whether this is documentation-only, tooling, or development project.
-- [ ] Read and document `D:\log20220802\moveLogFile.py`.
-- [ ] Read and document `D:\log20220802\checktgjlAll.py.py`.
-- [x] Turn manual log review into a parameterized workflow.
-- [ ] Create a standard abnormal clear-record report format.
-- [ ] Move sensitive server access notes into `private/dnf-70`.
+- [ ] 把所有 DNF 70 原始资料加入 `00-inbox`。
+- [ ] 补全 `01-references/source-inventory.md`。
+- [ ] 在 `01-references/version-notes.md` 明确版本边界。
+- [ ] 列出所有已知职业和职业状态。
+- [ ] 列出当前版本核心副本。
+- [ ] 明确本项目是资料库、工具项目，还是开发项目。
+- [ ] 阅读并记录 `D:\log20220802\moveLogFile.py` 的作用。
+- [ ] 阅读并记录 `D:\log20220802\checktgjlAll.py.py` 的输入输出格式。
+- [x] 把手动日志排查流程改造成可参数化流程。
+- [ ] 建立标准异常通关记录报告格式。
+- [ ] 把敏感服务器访问资料移动到 `private/dnf-70`。
 
-## Doing
+## 进行中 Doing
 
-- [ ] Maintain initial project workspace.
-- [ ] Document current log review workflow.
-- [ ] Review first one-click tool report and confirm suspicious UIDs.
+- [ ] 维护初始项目工作区。
+- [ ] 记录当前日志排查流程。
+- [ ] 复核第一次一键工具报告里的可疑 UID。
 
-## Done
+## 已完成 Done
 
-- [x] Create project folder structure.
-- [x] Add basic project docs and templates.
-- [x] Add safe secret-handling rules.
-- [x] Create local one-click DNF log review tool.
+- [x] 创建项目目录结构。
+- [x] 添加基础项目文档和模板。
+- [x] 添加敏感信息处理规则。
+- [x] 创建本地一键 DNF 日志排查工具。
+

@@ -1,26 +1,26 @@
-# {{year}}-W{{week}} Weekly Review
+# {{year}}-W{{week}} 周复盘 Weekly Review
 
-## Completed
-
-- 
-
-## Problems
+## 完成了什么
 
 - 
 
-## Lessons
+## 遇到的问题
 
 - 
 
-## Decisions
+## 学到的东西
 
 - 
 
-## Next Week
+## 做出的决策
 
 - 
 
-## Notes to Extract
+## 下周重点
+
+- 
+
+## 需要沉淀的笔记
 
 - 
 

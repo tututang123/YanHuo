@@ -1,5 +1,5 @@
-# Dungeons
+# 副本 Dungeons
 
-| Dungeon | Region | Level Range | Difficulty | Status | Source | Notes |
+| 副本 | 区域 | 等级范围 | 难度 | 状态 | 来源 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- |
 

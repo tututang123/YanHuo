@@ -1,8 +1,8 @@
-# Design Decisions
+# 设计决策 Design Decisions
 
-Record gameplay and scope decisions here.
+这里记录玩法和范围相关决策。
 
-| Date | Decision | Reason | Impact |
+| 日期 | 决策 | 原因 | 影响 |
 | --- | --- | --- | --- |
-| 2026-06-18 | Create separate DNF 70 project workspace | Keep materials and development notes organized | Future materials have a clear home |
+| 2026-06-18 | 创建独立的 DNF 70 项目工作区 | 让资料和开发记录有固定位置 | 后续资料可以按目录持续沉淀 |
 

@@ -1,35 +1,35 @@
-# Data Schemas
+# 数据结构 Data Schemas
 
-Define stable structures before extracting large data.
+大规模整理数据前，先定义稳定结构。
 
-## Class
+## 职业 Class
 
-| Field | Meaning | Example |
+| 字段 | 含义 | 示例 |
 | --- | --- | --- |
-| id | internal id | `slayer_m` |
-| name_cn | Chinese name | `男鬼剑士` |
-| status | confirmed / uncertain | `confirmed` |
-| notes | extra notes | |
+| id | 内部 ID | `slayer_m` |
+| name_cn | 中文名 | `男鬼剑士` |
+| status | 状态：confirmed / uncertain | `confirmed` |
+| notes | 备注 | |
 
-## Skill
+## 技能 Skill
 
-| Field | Meaning | Example |
+| 字段 | 含义 | 示例 |
 | --- | --- | --- |
-| id | internal id | |
-| class | class id | |
-| name_cn | Chinese name | |
-| level_required | required level | |
+| id | 内部 ID | |
+| class | 职业 ID | |
+| name_cn | 中文名 | |
+| level_required | 需求等级 | |
 | type | active / passive / buff | |
-| source | source reference | |
+| source | 来源 | |
 
-## Item
+## 道具 Item
 
-| Field | Meaning | Example |
+| 字段 | 含义 | 示例 |
 | --- | --- | --- |
-| id | internal id | |
-| name_cn | Chinese name | |
-| level | item level | |
-| rarity | rarity | |
-| slot | equipment slot | |
-| source | source reference | |
+| id | 内部 ID | |
+| name_cn | 中文名 | |
+| level | 道具等级 | |
+| rarity | 品级 | |
+| slot | 装备部位 | |
+| source | 来源 | |
 

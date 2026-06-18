@@ -1,4 +1,4 @@
-# Archive
+# 归档 Archive
 
-Move outdated, replaced, or completed materials here.
+过期、废弃、已完成或暂时不用的资料放这里。
 

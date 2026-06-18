@@ -1,27 +1,27 @@
-# Personal Knowledge System
+# 个人知识系统 Personal Knowledge System
 
-This folder is a working memory for life, work, learning, and long-term improvement.
+这个目录是生活、工作、学习和长期提升的工作记忆。
 
-## How to Use
+## 怎么使用
 
-1. Capture quickly in `00-inbox`.
-2. Move useful notes into the right area during weekly review.
-3. Turn repeated problems into reusable notes.
-4. Archive stale or finished material in `90-archive`.
+1. 临时想法先快速写到 `00-inbox`。
+2. 每周复盘时，把有价值的内容整理到对应领域。
+3. 把反复出现的问题沉淀成可复用笔记。
+4. 过期或完成的资料归档到 `90-archive`。
 
-## Areas
+## 目录说明
 
-- `00-inbox`: raw thoughts, daily notes, quick captures.
-- `10-life`: health, family, finance, routines, emotions, relationships.
-- `20-work`: work notes, communication, meetings, decisions, career growth.
-- `30-learning`: books, courses, technical notes, language learning, study plans.
-- `40-projects`: active goals with clear outcomes.
-- `50-resources`: reusable lists, templates, references, checklists.
-- `80-reviews`: weekly, monthly, quarterly, yearly reviews.
-- `90-archive`: finished, old, or inactive material.
-- `templates`: note templates.
+- `00-inbox`：原始想法、日记、随手记录。
+- `10-life`：健康、家庭、财务、习惯、情绪、关系。
+- `20-work`：工作记录、沟通、会议、决策、职业成长。
+- `30-learning`：读书、课程、技术学习、语言学习、学习计划。
+- `40-projects`：有明确目标的项目和长期事项。
+- `50-resources`：清单、模板、资料、提示词、流程。
+- `80-reviews`：周复盘、月复盘、季度复盘、年度复盘。
+- `90-archive`：完成、过期或暂时不用的内容。
+- `templates`：通用模板。
 
-## Operating Rule
+## 使用原则
 
-Keep the system boring enough to use every day.
+系统要足够简单，简单到每天累的时候也愿意用。
 

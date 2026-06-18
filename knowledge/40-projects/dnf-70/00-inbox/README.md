@@ -1,24 +1,24 @@
-# Inbox
+# 临时收集区 Inbox
 
-Put unsorted DNF 70 materials here first.
+未分类的 DNF 70 资料先放这里。
 
-Examples:
+可以放：
 
-- PDF, Word, Markdown, TXT notes
-- screenshots
-- links copied from websites
-- extracted tables
-- old config snippets
-- gameplay memories
-- unknown files that need classification
+- PDF、Word、Markdown、TXT 笔记
+- 截图
+- 网页链接
+- 表格或提取出来的数据
+- 旧配置片段
+- 游戏玩法记忆
+- 暂时不知道怎么分类的文件
 
-After sorting, move or summarize materials into the proper folder.
+整理时，再把有用内容移动或总结到对应目录。
 
-## Important
+## 重要提醒
 
-Do not put server passwords, private keys, tokens, or other secrets in this Git-tracked project folder.
+不要把服务器密码、私钥、token、数据库密码等敏感信息写进这个 Git 跟踪目录。
 
-For sensitive server access notes, keep them local only under:
+敏感信息只放本地私密目录：
 
 ```text
 private/dnf-70/

@@ -1,6 +1,6 @@
-# Technical Decisions
+# 技术决策 Technical Decisions
 
-| Date | Decision | Options Considered | Reason | Review Date |
+| 日期 | 决策 | 考虑过的选项 | 原因 | 复查日期 |
 | --- | --- | --- | --- | --- |
-| 2026-06-18 | Keep project docs in Markdown first | Markdown, database, spreadsheet | Markdown is easy to edit, diff, search, and version-control | 2026-06-25 |
+| 2026-06-18 | 项目文档先使用 Markdown | Markdown、数据库、表格 | Markdown 易编辑、易搜索、易版本管理 | 2026-06-25 |
 

@@ -1,5 +1,5 @@
-# Skills
+# 技能 Skills
 
-| Class | Skill Name | Level | Type | Status | Source | Notes |
+| 职业 | 技能名称 | 等级 | 类型 | 状态 | 来源 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- |
 

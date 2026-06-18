@@ -1,12 +1,12 @@
-# Projects
+# 项目 Projects
 
-Use this area for active goals that have outcomes, deadlines, or repeated action.
+这里记录有明确目标、期限或持续行动的项目。
 
-Each project should have:
+每个项目建议包含：
 
-- goal
-- current status
-- next actions
-- decisions
-- review notes
+- 目标
+- 当前状态
+- 下一步行动
+- 决策记录
+- 复盘记录
 

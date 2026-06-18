@@ -1,28 +1,28 @@
-# Secret Handling
+# 敏感信息处理 Secret Handling
 
-Server passwords, SSH private keys, tokens, database passwords, and other access credentials must not be stored in Git.
+服务器密码、SSH 私钥、token、数据库密码等访问凭据不能放进 Git。
 
-## Local-Only Location
+## 本地私密位置
 
-Use this local ignored folder for sensitive notes:
+敏感内容只放这个本地目录：
 
 ```text
 private/dnf-70/
 ```
 
-The `private/` folder is ignored by `.gitignore`.
+`private/` 已经被 `.gitignore` 忽略，不会上传 GitHub。
 
-## Recommended Files
+## 推荐文件
 
 ```text
 private/dnf-70/server-access.md
 private/dnf-70/local-paths.md
 ```
 
-## Rules
+## 规则
 
-- Do not write passwords in `knowledge/`.
-- Do not commit `.pem`, `.key`, `.env`, or credential text files.
-- If a password was accidentally written to a Git-tracked file, remove it before committing.
-- If a password was already pushed, rotate the password immediately.
+- 不要在 `knowledge/` 里写密码。
+- 不要提交 `.pem`、`.key`、`.env` 或包含凭据的文本文件。
+- 如果密码误写进 Git 跟踪文件，提交前必须删除。
+- 如果密码已经推送到远端，立刻更换密码。
 

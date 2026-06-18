@@ -1,25 +1,25 @@
-# Source Note
+# 资料笔记模板 Source Note
 
-## Source
+## 来源
 
-- Name:
-- Type:
-- Date added:
-- Original location:
-- Reliability:
+- 名称：
+- 类型：
+- 添加日期：
+- 原始位置：
+- 可信度：
 
-## Summary
+## 摘要
 
 
-## Useful Details
-
-- 
-
-## Unclear Points
+## 有用细节
 
 - 
 
-## Related Files
+## 不清楚的问题
+
+- 
+
+## 相关文件
 
 - 
 

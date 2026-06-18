@@ -1,29 +1,29 @@
-# Feature Spec
+# 功能说明模板 Feature Spec
 
-## Feature
-
-
-## Goal
+## 功能
 
 
-## Scope
+## 目标
 
-### Included
 
-- 
+## 范围
 
-### Excluded
+### 包含
 
 - 
 
-## Behavior
-
-
-## Data Needed
+### 不包含
 
 - 
 
-## Open Questions
+## 行为说明
+
+
+## 需要的数据
+
+- 
+
+## 待确认问题
 
 - 
 

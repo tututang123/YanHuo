@@ -1,7 +1,7 @@
-# Classes
+# 职业 Classes
 
-Use this file to record class availability for the target 70 version.
+这里记录目标 70 版本包含哪些职业和转职。
 
-| Class | Subclass | Awakening | Status | Notes |
+| 职业 | 转职 | 觉醒 | 状态 | 备注 |
 | --- | --- | --- | --- | --- |
 

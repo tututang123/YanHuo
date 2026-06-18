@@ -1,23 +1,23 @@
-# Architecture
+# 架构 Architecture
 
-## Current Understanding
+## 当前理解
 
-No architecture has been selected yet.
+目前还没有最终确定架构。
 
-## Possible Directions
+## 可能方向
 
-- Documentation-only archive
-- Data extraction and normalization tools
-- Game data editor
-- Web-based knowledge site
-- Local development server
-- Client/server research environment
+- 只做资料归档
+- 做数据提取和规范化工具
+- 做游戏数据编辑器
+- 做 Web 知识库
+- 做本地开发服务
+- 做客户端/服务端研究环境
 
-## Components
+## 组件
 
-| Component | Purpose | Status | Notes |
+| 组件 | 用途 | 状态 | 备注 |
 | --- | --- | --- | --- |
-| Materials archive | Store and classify source materials | planned | Starts in `00-inbox` |
-| Data model | Normalize classes, skills, items, dungeons | planned | Define schemas later |
-| Development workspace | Track implementation work | planned | Use `04-development` |
+| 资料归档 | 保存和分类原始资料 | planned | 从 `00-inbox` 开始 |
+| 数据模型 | 规范化职业、技能、道具、副本 | planned | 后续定义 schema |
+| 开发工作区 | 跟踪实现工作 | planned | 使用 `04-development` |
 

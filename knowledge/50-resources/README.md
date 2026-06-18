@@ -1,6 +1,6 @@
-# Resources
+# 资源 Resources
 
-Use this area for reusable materials: checklists, templates, links, prompts, workflows, and reference notes.
+这里放可复用材料：清单、模板、链接、提示词、流程和参考笔记。
 
-Good resources are short, reusable, and easy to apply.
+好的资源应该简短、可复用、容易执行。
 

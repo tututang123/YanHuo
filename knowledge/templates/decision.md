@@ -1,23 +1,23 @@
-# Decision: Title
+# 决策：标题
 
-## Date
+## 日期
 
 YYYY-MM-DD
 
-## Context
+## 背景
 
 
-## Options
+## 选项
 
 - 
 
-## Decision
+## 决策
 
 
-## Reason
+## 原因
 
 
-## Review Date
+## 复查日期
 
 YYYY-MM-DD
 

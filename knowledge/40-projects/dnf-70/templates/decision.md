@@ -1,26 +1,26 @@
-# Decision
+# 决策记录模板 Decision
 
-## Date
+## 日期
 
 YYYY-MM-DD
 
-## Decision
+## 决策
 
 
-## Context
+## 背景
 
 
-## Options
+## 选项
 
 - 
 
-## Reason
+## 原因
 
 
-## Impact
+## 影响
 
 
-## Review Date
+## 复查日期
 
 YYYY-MM-DD
 

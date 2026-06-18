@@ -1,21 +1,21 @@
-# Bug
+# 问题记录模板 Bug
 
-## Summary
-
-
-## Environment
+## 摘要
 
 
-## Steps
+## 环境
+
+
+## 复现步骤
 
 1. 
 
-## Expected
+## 预期结果
 
 
-## Actual
+## 实际结果
 
 
-## Notes
+## 备注
 
 

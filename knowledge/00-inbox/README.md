@@ -1,12 +1,12 @@
-# Inbox
+# 临时收集 Inbox
 
-Put raw notes here first. Do not organize while capturing.
+原始记录先放这里。记录时不要纠结分类。
 
-Suggested daily file name:
+建议日记文件名：
 
 ```text
 YYYY-MM-DD-daily.md
 ```
 
-During weekly review, extract anything useful into life, work, learning, projects, or resources.
+每周复盘时，再把有价值内容整理到生活、工作、学习、项目或资源目录。
 

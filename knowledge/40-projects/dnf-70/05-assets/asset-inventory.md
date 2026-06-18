@@ -1,5 +1,5 @@
-# Asset Inventory
+# 素材清单 Asset Inventory
 
-| Asset Name | Type | Source | Local Path | Version Confidence | Notes |
+| 素材名称 | 类型 | 来源 | 本地路径 | 版本可信度 | 备注 |
 | --- | --- | --- | --- | --- | --- |
 

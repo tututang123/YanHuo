@@ -1,8 +1,8 @@
-# Reviews
+# 复盘 Reviews
 
-Use this area for weekly, monthly, quarterly, and yearly reviews.
+这里放周复盘、月复盘、季度复盘和年度复盘。
 
-Suggested file names:
+建议文件名：
 
 ```text
 2026-W25.md

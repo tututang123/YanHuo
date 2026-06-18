@@ -1,37 +1,38 @@
-# Storage Policy
+# 文件存放规则
 
-This project may eventually contain large files, binaries, screenshots, game assets, extracted data, and private research materials.
+这个项目后续可能会包含大文件、二进制、截图、游戏资源、提取数据和私密研究资料。
 
-## Safe to Store in Git
+## 可以放进 Git 的内容
 
-- Markdown notes
-- Small CSV / JSON / YAML data tables
-- Project plans
-- Source inventory
-- Technical decisions
-- Publicly shareable documentation
+- Markdown 文档
+- 小型 CSV / JSON / YAML 数据表
+- 项目计划
+- 资料来源清单
+- 技术决策
+- 可以公开同步的说明文档
 
-## Be Careful
+## 需要谨慎的内容
 
-- Screenshots
-- Extracted game data
-- Decompiled or reverse-engineered notes
-- Server/client binaries
-- Large asset packs
-- Files with unclear ownership
+- 截图
+- 提取出来的游戏数据
+- 反编译或逆向分析笔记
+- 服务端/客户端二进制
+- 大型资源包
+- 版权或来源不明确的文件
 
-## Recommended Practice
+## 推荐做法
 
-- Put uncertain or large files under a local-only folder such as:
+不确定能不能上传的文件，先放本地私密目录：
 
 ```text
 private/dnf-70/
 ```
 
-- Keep only indexes, summaries, and file references in this Git-tracked project folder.
-- If a file is important but cannot be uploaded, record it in `01-references/source-inventory.md` with its local path.
+Git 项目里只保存索引、说明、摘要和本地路径引用。
 
-## Why
+如果某个文件很重要但不能上传，就在 `01-references/source-inventory.md` 里记录它的本地路径和说明。
 
-This keeps the GitHub repository clean, searchable, and safer to maintain.
+## 为什么这样做
+
+这样可以让 GitHub 仓库保持干净、容易搜索，也降低误传敏感文件或版权文件的风险。
 

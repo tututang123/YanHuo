@@ -1,31 +1,31 @@
-# Gameplay Overview
+# 玩法总览 Gameplay Overview
 
-## Project Direction
+## 项目方向
 
-Describe what this project should become.
+描述这个项目最终要做成什么。
 
-- Archive / knowledge base:
-- Tooling project:
-- Client/server development:
-- Data reconstruction:
-- Other:
+- 资料归档 / 知识库：
+- 工具项目：
+- 客户端/服务端开发：
+- 数据重建：
+- 其他：
 
-## Core Experience
+## 核心体验
 
-- Target player:
-- Main loop:
-- Progression:
-- Combat feel:
-- Social / trading:
+- 目标玩家：
+- 主要循环：
+- 成长线：
+- 战斗手感：
+- 社交 / 交易：
 
-## Systems To Document
+## 需要整理的系统
 
-- Characters and classes
-- Skills
-- Equipment
-- Dungeons
-- Quests
-- Economy
-- NPCs
+- 角色和职业
+- 技能
+- 装备
+- 副本
+- 任务
+- 经济
+- NPC
 - UI
 

@@ -1,94 +1,94 @@
-# One-Click Log Review Tool
+# 一键日志排查工具 One-Click Log Review Tool
 
-This document describes the local-only one-click DNF log review tool.
+这里说明本地一键 DNF 日志排查工具。
 
-## Tool Location
+## 工具位置
 
-The tool is stored locally and is not uploaded to Git:
+工具只保存在本地，不上传 Git：
 
 ```text
 private/dnf-70/tools/dnf-log-review.js
 ```
 
-## Run Command
+## 运行命令
 
-From the repository root:
+在仓库根目录执行：
 
 ```powershell
 node private\dnf-70\tools\dnf-log-review.js
 ```
 
-## What It Does
+## 工具会做什么
 
-1. Reads server access from `private/dnf-70/server-access.template.md`.
-2. Connects to the server with SSH.
-3. Lists remote `.history` log files under `/home/neople/game/log/siroco11`.
-4. Selects only logs that are stable and not already processed.
-5. Packages selected logs on the server.
-6. Downloads the package to `private/dnf-70/log-runs/<run-id>`.
-7. Extracts logs locally.
-8. Analyzes `DungeonLeave` and `DungeonClearInfo` records.
-9. Generates Markdown and CSV reports.
-10. Records processed files in local state.
+1. 从 `private/dnf-70/server-access.template.md` 读取服务器连接信息。
+2. 通过 SSH 连接服务器。
+3. 列出 `/home/neople/game/log/siroco11` 下的 `.history` 日志。
+4. 只选择稳定且没有处理过的日志。
+5. 在服务器上打包选中的日志。
+6. 下载到 `private/dnf-70/log-runs/<run-id>`。
+7. 本地解压日志。
+8. 分析 `DungeonLeave` 和 `DungeonClearInfo`。
+9. 生成 Markdown 和 CSV 报告。
+10. 把已处理文件记录到本地状态文件。
 
-## Duplicate Prevention
+## 如何避免重复分析
 
-The tool stores processed log metadata locally:
+工具会把已处理的日志元数据记录到：
 
 ```text
 private/dnf-70/state/processed-history.json
 ```
 
-Each processed remote file is recorded with:
+每个日志会记录：
 
-- filename
-- size
-- modification time
-- run ID
-- processed time
+- 文件名
+- 文件大小
+- 修改时间
+- 运行 ID
+- 处理时间
 
-On the next run, the tool skips files with the same filename, size, and modification time.
+下次运行时，如果文件名、大小、修改时间都一致，就会自动跳过，不会重复分析。
 
-## Active Log Protection
+## 跳过正在写入的日志
 
-By default, the tool skips files modified within the last 70 minutes.
+默认会跳过最近 70 分钟内修改过的日志。
 
-Reason: the current hour's log may still be written, and analyzing it too early can cause repeated partial analysis.
+原因：当前小时日志可能还在写，太早分析会导致重复处理不完整日志。
 
-Override if needed:
+如果需要调整：
 
 ```powershell
 node private\dnf-70\tools\dnf-log-review.js --stable-minutes 10
 ```
 
-Force including active files:
+如果明确要包含最近日志：
 
 ```powershell
 node private\dnf-70\tools\dnf-log-review.js --include-active
 ```
 
-## Full Reanalysis
+## 强制全量重跑
 
-Use this only when you intentionally want to reprocess stable logs:
+只有在明确想重新分析所有稳定日志时使用：
 
 ```powershell
 node private\dnf-70\tools\dnf-log-review.js --full
 ```
 
-## Reports
+## 报告位置
 
-Each run creates:
+每次运行会生成：
 
 ```text
 private/dnf-70/log-runs/<run-id>/reports/dungeon-log-review-report.md
 private/dnf-70/log-runs/<run-id>/reports/dungeon-leave-summary.csv
 ```
 
-## Suspicion Rules
+## 可疑规则
 
-- `single_file_leave>30`: one UID has more than 30 `DungeonLeave` records in a single hourly log.
-- `total_leave>=100`: one UID has at least 100 `DungeonLeave` records in the run.
-- `many_hours_active`: one UID appears across many hourly logs with high total activity.
+- `single_file_leave>30`：同一 UID 在单个小时日志中出现超过 30 条 `DungeonLeave`。
+- `total_leave>=100`：同一 UID 在本次运行中至少 100 条 `DungeonLeave`。
+- `many_hours_active`：同一 UID 跨多个小时日志高频出现。
 
-These are first-pass detection rules. Confirm suspicious UIDs manually before taking action.
+这些只是初筛规则。处理玩家前，必须人工复核详细日志。
 

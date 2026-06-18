@@ -1,12 +1,12 @@
-# Learning
+# 学习 Learning
 
-Use this area for books, courses, technical learning, language learning, and study methods.
+这里记录读书、课程、技术学习、语言学习和学习方法。
 
-Useful starting notes:
+可以先建立这些笔记：
 
-- `learning-plan.md`
-- `reading-notes.md`
-- `technical-notes.md`
-- `english.md`
-- `questions.md`
+- `learning-plan.md`：学习计划
+- `reading-notes.md`：读书笔记
+- `technical-notes.md`：技术笔记
+- `english.md`：英语
+- `questions.md`：问题清单
 

@@ -1,12 +1,12 @@
-# Development
+# 开发 Development
 
-Use this folder for implementation planning and progress tracking.
+这里记录实现计划和开发进度。
 
-Suggested files:
+建议维护：
 
-- `roadmap.md`
-- `tasks.md`
-- `changelog.md`
-- `bugs.md`
-- `milestones.md`
+- `roadmap.md`：路线图。
+- `tasks.md`：任务看板。
+- `changelog.md`：变更记录。
+- `bugs.md`：问题记录。
+- `milestones.md`：里程碑。
 

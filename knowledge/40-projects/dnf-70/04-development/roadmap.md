@@ -1,27 +1,27 @@
-# Roadmap
+# 路线图 Roadmap
 
-## Phase 1: Material Collection
+## 阶段 1：资料收集
 
-- Collect original files and notes.
-- Create source inventory.
-- Define version boundary.
-- Identify high-confidence sources.
+- 收集原始文件和笔记。
+- 建立资料来源清单。
+- 明确版本边界。
+- 标记高可信资料。
 
-## Phase 2: Data Organization
+## 阶段 2：数据整理
 
-- Create data schemas.
-- Extract class, skill, item, dungeon, NPC, and quest data.
-- Mark uncertain data.
+- 建立数据结构。
+- 提取职业、技能、道具、装备、副本、NPC、任务数据。
+- 标记不确定数据。
 
-## Phase 3: Design and Technical Direction
+## 阶段 3：设计和技术方向
 
-- Decide project output.
-- Draft architecture.
-- Choose development stack if software development is needed.
+- 明确项目最终产出。
+- 编写架构草案。
+- 如果需要开发软件，选择技术栈。
 
-## Phase 4: Development
+## 阶段 4：开发
 
-- Build tools or application modules.
-- Add tests or validation where useful.
-- Keep changelog and bug list.
+- 开发工具或应用模块。
+- 需要时补充测试或校验脚本。
+- 持续维护变更记录和问题清单。
 

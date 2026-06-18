@@ -1,26 +1,26 @@
-# Project Name
+# 项目名称
 
-## Goal
-
-
-## Why It Matters
+## 目标
 
 
-## Current Status
+## 为什么重要
 
 
-## Next Actions
+## 当前状态
 
-- 
 
-## Decisions
+## 下一步行动
 
 - 
 
-## Notes
+## 决策
 
 - 
 
-## Review
+## 备注
+
+- 
+
+## 复盘
 
 

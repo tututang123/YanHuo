@@ -1,6 +1,6 @@
-# Archive
+# 归档 Archive
 
-Move old, finished, or inactive notes here.
+旧的、完成的、暂停的或不活跃的笔记放这里。
 
-Archiving is not deleting. It keeps the active system clean.
+归档不是删除，而是让当前系统保持清爽。
 

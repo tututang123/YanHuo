@@ -1,12 +1,12 @@
-# Life
+# 生活 Life
 
-Use this area for health, money, family, habits, relationships, home, and personal energy.
+这里记录健康、财务、家庭、习惯、关系、居住和个人精力管理。
 
-Useful starting notes:
+可以先建立这些笔记：
 
-- `health.md`
-- `finance.md`
-- `habits.md`
-- `relationships.md`
-- `energy.md`
+- `health.md`：健康
+- `finance.md`：财务
+- `habits.md`：习惯
+- `relationships.md`：关系
+- `energy.md`：精力
 
