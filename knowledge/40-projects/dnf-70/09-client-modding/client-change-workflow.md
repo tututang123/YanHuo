@@ -54,6 +54,14 @@ Work only inside:
 private/dnf-70/client-workspace/
 ```
 
+PVF exported-file safety rules:
+
+- Do not modify files directly in `pvf-export`.
+- Preserve original encoding, line endings, indentation, separators, and font-related text format.
+- Do not run formatters.
+- Apply only minimal targeted edits.
+- Put edited copies in `pvf-modified` and import-ready copies in `pvf-import-ready`.
+
 ## 5. Verify
 
 - Client starts normally:

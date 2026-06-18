@@ -37,4 +37,5 @@ private/dnf-70/client-backups    # original client backups before modification
 - Keep binary files and extracted client resources out of Git.
 - Record checksums for original and modified files when possible.
 - Keep each change small and reversible.
-
+- For PVF exported files, preserve original encoding, line endings, indentation, separators, and font-related text format.
+- Never run automatic formatters on PVF exported files.

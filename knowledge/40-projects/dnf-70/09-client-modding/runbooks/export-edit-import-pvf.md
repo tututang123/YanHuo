@@ -143,4 +143,12 @@ The patch record should include:
 - Keep original export clean when possible.
 - Use `pvf-modified` and `pvf-import-ready` for generated changes.
 - Do not upload exported PVF files or modified client files to GitHub.
+- Do not change file encoding, line endings, indentation style, field separators, font-related text format, or unrelated formatting.
+- Do not run formatters on exported PVF files.
+- Apply only the smallest necessary edit.
 
+See also:
+
+```text
+09-client-modding/format-safety-rules.md
+```
