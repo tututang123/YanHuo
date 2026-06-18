@@ -1,52 +1,53 @@
-# PVF Format Safety Rules
+# PVF 文件格式安全规则
 
-These rules are mandatory for any DNF 70 PVF exported-file modification.
+这份规则是强制要求。以后只要修改 PVF 导出的文件，都要遵守。
 
-## Core Rule
+## 核心原则
 
-Do not change file encoding, font-related text format, line endings, indentation style, field separators, or unrelated formatting.
+不要改变文件编码、字体相关格式、换行符、缩进风格、字段分隔符、字段顺序，以及任何和目标改动无关的格式。
 
-PVF exported files may be sensitive to exact byte layout and parser expectations. Treat every edit as a minimal patch.
+PVF 导出的文件可能对字节布局、编码和解析格式很敏感。每次改动都应该像“最小补丁”一样处理。
 
-## What Codex Must Do
+## Codex 修改时必须做到
 
-- Preserve the original file path.
-- Preserve the original file encoding whenever possible.
-- Preserve original line endings whenever possible.
-- Preserve original indentation and spacing style.
-- Preserve original field order.
-- Modify only the smallest necessary text range.
-- Never run a formatter on exported PVF files.
-- Never normalize all files to UTF-8 automatically.
-- Never bulk rewrite files for style.
-- Work on copies under `pvf-modified` or `pvf-import-ready`, not directly on `pvf-export`.
+- 保留原始文件路径。
+- 尽量保留原始文件编码。
+- 尽量保留原始换行符。
+- 保留原始缩进和空格风格。
+- 保留原始字段顺序。
+- 只修改最小必要文本范围。
+- 不对导出文件运行格式化工具。
+- 不自动把所有文件转成 UTF-8。
+- 不为了“好看”批量重写文件。
+- 不直接修改 `pvf-export` 里的原始导出文件。
+- 修改副本放在 `pvf-modified`，准备导入的文件放在 `pvf-import-ready`。
 
-## Required Workflow
+## 必须遵守的工作流程
 
-1. Read the target file.
-2. Identify the smallest edit needed.
-3. Copy the original file from `pvf-export` to `pvf-modified`, preserving relative path.
-4. Apply the minimal change to the copied file.
-5. Copy only changed files to `pvf-import-ready`, preserving relative path.
-6. Record changed files in a patch note.
+1. 读取目标文件。
+2. 找出最小需要修改的位置。
+3. 从 `pvf-export` 复制原文件到 `pvf-modified`，保持相同相对路径。
+4. 只在复制出来的文件上做最小改动。
+5. 把最终需要导入的文件复制到 `pvf-import-ready`，保持相同相对路径。
+6. 在补丁记录里写清楚改了哪些文件。
 
-## Local Folders
+## 本地目录
 
 ```text
-private/dnf-70/client-workspace/pvf-export        # original exported files, keep clean
-private/dnf-70/client-workspace/pvf-modified      # edited copies
-private/dnf-70/client-workspace/pvf-import-ready  # changed files for PVF Utility import
+private/dnf-70/client-workspace/pvf-export        # 原始导出文件，尽量保持干净
+private/dnf-70/client-workspace/pvf-modified      # 修改后的副本
+private/dnf-70/client-workspace/pvf-import-ready  # 准备导入 PVF Utility 的文件
 ```
 
-## Do Not
+## 禁止事项
 
-- Do not edit every file in a folder.
-- Do not convert Chinese text encoding.
-- Do not replace tabs/spaces globally.
-- Do not re-save through tools that may rewrite the whole file unless required.
-- Do not change font names, UI font tags, or display text format unless that is the explicit goal.
+- 不要一口气改整个文件夹。
+- 不要转换中文文本编码。
+- 不要全局替换 tab/空格。
+- 不要用会重写整个文件的工具重新保存，除非确实需要。
+- 不要修改字体名、UI 字体标签、显示文本格式，除非这就是本次明确目标。
 
-## If Encoding Is Unclear
+## 如果不确定编码
 
-Stop and inspect the file first. Prefer byte-preserving or targeted replacement methods over full-file rewriting.
+先停下来检查文件。优先使用“保留字节”的方式或精准替换，不要整文件重写。
 

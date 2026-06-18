@@ -1,10 +1,10 @@
-# Setup Client Workspace
+# 设置客户端工作区
 
-## Goal
+## 目标
 
-Prepare a safe local workspace for DNF 70 client-side editing.
+准备一个安全的本地工作区，用来修改 DNF 70 客户端文件。
 
-## Local Folders
+## 本地目录
 
 ```text
 private/dnf-70/client-tools
@@ -12,18 +12,18 @@ private/dnf-70/client-workspace
 private/dnf-70/client-backups
 ```
 
-## Steps
+## 操作步骤
 
-1. Put editor tools into `private/dnf-70/client-tools`.
-2. Put a clean copy of the client into `private/dnf-70/client-workspace/original`.
-3. Copy files to modify into a separate working folder.
-4. Record tool usage in `09-client-modding/tool-index.md`.
-5. Record file meanings in `09-client-modding/file-maps/client-file-index.md`.
-6. Before each change, create a backup folder under `private/dnf-70/client-backups`.
+1. 把客户端编辑工具放到 `private/dnf-70/client-tools`。
+2. 把干净的客户端或 PVF 原始文件放到 `private/dnf-70/client-workspace/original` 或备份目录。
+3. 把要修改的文件复制到单独工作目录。
+4. 在 `09-client-modding/tool-index.md` 记录工具用途。
+5. 在 `09-client-modding/file-maps/client-file-index.md` 记录功能对应文件。
+6. 每次修改前，在 `private/dnf-70/client-backups` 下创建备份目录。
 
-## Notes
+## 注意
 
-- Keep the original client untouched.
-- Use one folder per change.
-- Record exact steps so changes are repeatable.
+- 保持原始客户端不动。
+- 每次改动一个独立目录。
+- 记录完整步骤，方便以后复现和回滚。
 

@@ -1,79 +1,81 @@
-# Client Change Workflow
+# 客户端修改流程 Client Change Workflow
 
-Use this workflow for every client-side change.
+每一次客户端改动都按这个流程走，方便回溯、测试和回滚。
 
-## 1. Define Change
+## 1. 明确改动目标
 
-- Feature/change name:
-- Why:
-- Expected behavior:
-- Target client version:
+- 功能/改动名称：
+- 为什么要改：
+- 期望效果：
+- 目标客户端版本：
 
-## 2. Locate Files
+## 2. 定位文件
 
-Check:
+先查看：
 
 ```text
 09-client-modding/file-maps/
 ```
 
-Open PVF package:
+打开 PVF 包：
 
 ```text
 PVF Utility -> 文件(F) -> 打开封包 -> Script.pvf
 ```
 
-If direct editing is unclear, use the export/edit/import workflow:
+如果不确定怎么直接编辑，就用导出/修改/导入流程：
 
 ```text
-PVF Utility exports full package
-Codex edits selected exported files
-PVF Utility imports changed files
+PVF Utility 导出整个包
+Codex 修改导出的目标文件
+PVF Utility 再导入修改后的文件
 ```
 
-Record:
+需要记录：
 
-- original file path
-- extracted file path
-- related config/script/resource files
-- encoding or format
+- 原始文件路径
+- 导出后的文件路径
+- 相关配置/脚本/资源文件
+- 文件编码或格式
 
-## 3. Backup
+## 3. 备份
 
-Back up original files to:
+修改前备份到：
 
 ```text
 private/dnf-70/client-backups/YYYYMMDD-change-name/
 ```
 
-## 4. Modify
+## 4. 修改
 
-Work only inside:
+只在这个工作区里修改：
 
 ```text
 private/dnf-70/client-workspace/
 ```
 
-PVF exported-file safety rules:
+PVF 导出文件安全规则：
 
-- Do not modify files directly in `pvf-export`.
-- Preserve original encoding, line endings, indentation, separators, and font-related text format.
-- Do not run formatters.
-- Apply only minimal targeted edits.
-- Put edited copies in `pvf-modified` and import-ready copies in `pvf-import-ready`.
+- 不要直接修改 `pvf-export`。
+- 保留原始编码、换行、缩进、分隔符、字体相关格式。
+- 不要运行格式化工具。
+- 只做最小精准改动。
+- 修改副本放 `pvf-modified`。
+- 准备导入的文件放 `pvf-import-ready`。
 
-## 5. Verify
+## 5. 验证
 
-- Client starts normally:
-- Feature works:
-- No obvious UI/resource error:
-- Server compatibility checked:
-- Rollback tested:
+- 客户端能正常启动：
+- 功能按预期生效：
+- 没有明显 UI/资源错误：
+- 服务端兼容性已确认：
+- 回滚方法已测试：
 
-## 6. Record Patch
+## 6. 记录补丁
 
-Create a patch note under:
+在下面目录创建补丁记录：
 
 ```text
 09-client-modding/patches/
 ```
+

@@ -1,15 +1,15 @@
-# Client APIs and Editing References
+# 客户端 API 和编辑参考
 
-Put API references and command notes here.
+这里放工具 API、命令、文件格式说明和接口资料。
 
-Examples:
+例子：
 
-- tool command-line options
-- script API
-- client config API
-- file format notes
-- packet or protocol references
-- UI/resource editing notes
+- 工具命令行参数
+- 脚本 API
+- 客户端配置 API
+- 文件格式说明
+- 封包/协议参考
+- UI 或资源编辑说明
 
-Use one Markdown file per API or tool family.
+建议一个 API 或一类工具建一个 Markdown 文件。
 

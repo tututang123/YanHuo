@@ -1,13 +1,13 @@
-# Client Modding Runbooks
+# 客户端操作手册 Runbooks
 
-Use this folder for repeatable operation docs.
+这里放可以重复执行的客户端操作步骤。
 
-Examples:
+例子：
 
-- unpack client resources
-- repack client resources
-- edit UI text
-- replace icon/resource
-- test modified client
-- rollback client patch
+- 解包客户端资源
+- 重新打包客户端资源
+- 修改 UI 文本
+- 替换图标或资源
+- 测试修改后的客户端
+- 回滚客户端补丁
 

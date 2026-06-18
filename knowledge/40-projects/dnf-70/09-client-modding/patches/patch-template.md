@@ -1,49 +1,49 @@
-# Patch: Change Name
+# 补丁记录：修改名称
 
-## Date
+## 日期
 
 YYYY-MM-DD
 
-## Goal
+## 目标
 
 
-## Reason
+## 修改原因
 
 
-## Scope
+## 范围
 
-### Included
-
-- 
-
-### Excluded
+### 包含
 
 - 
 
-## Tools Used
+### 不包含
 
-| Tool | Version | Local Path |
+- 
+
+## 使用工具
+
+| 工具 | 版本 | 本地路径 |
 | --- | --- | --- |
 
-## Files Changed
+## 修改文件
 
-| File | Original Path | Working Path | Backup Path | Notes |
+| 文件 | 原始路径 | 工作路径 | 备份路径 | 说明 |
 | --- | --- | --- | --- | --- |
 
-## Steps
+## 操作步骤
 
 1. 
 
-## Test Result
+## 测试结果
 
-- Client starts:
-- Feature works:
-- No regression found:
+- 客户端启动：
+- 功能生效：
+- 未发现明显回归：
 
-## Rollback
+## 回滚方法
 
 
-## Notes
+## 备注
 
 - 
 

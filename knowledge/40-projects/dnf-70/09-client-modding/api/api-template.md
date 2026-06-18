@@ -1,41 +1,41 @@
-# API / Tool Reference
+# API / 工具参考
 
-## Name
-
-
-## Purpose
+## 名称
 
 
-## Local Tool Path
+## 用途
+
+
+## 本地工具路径
 
 ```text
 private/dnf-70/client-tools/
 ```
 
-## Input Files
+## 输入文件
 
 - 
 
-## Output Files
+## 输出文件
 
 - 
 
-## Commands
+## 命令
 
 ```text
 
 ```
 
-## Important Parameters
+## 重要参数
 
-| Parameter | Meaning | Example |
+| 参数 | 含义 | 示例 |
 | --- | --- | --- |
 
-## Notes
+## 注意事项
 
 - 
 
-## Known Risks
+## 已知风险
 
 - 
 
