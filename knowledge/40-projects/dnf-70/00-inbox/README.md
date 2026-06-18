@@ -14,3 +14,13 @@ Examples:
 
 After sorting, move or summarize materials into the proper folder.
 
+## Important
+
+Do not put server passwords, private keys, tokens, or other secrets in this Git-tracked project folder.
+
+For sensitive server access notes, keep them local only under:
+
+```text
+private/dnf-70/
+```
+

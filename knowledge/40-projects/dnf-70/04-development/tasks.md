@@ -8,13 +8,19 @@
 - [ ] List all known classes and class status.
 - [ ] List core dungeons for this version.
 - [ ] Decide whether this is documentation-only, tooling, or development project.
+- [ ] Read and document `D:\log20220802\moveLogFile.py`.
+- [ ] Read and document `D:\log20220802\checktgjlAll.py.py`.
+- [ ] Turn manual log review into a parameterized workflow.
+- [ ] Create a standard abnormal clear-record report format.
+- [ ] Move sensitive server access notes into `private/dnf-70`.
 
 ## Doing
 
 - [ ] Maintain initial project workspace.
+- [ ] Document current log review workflow.
 
 ## Done
 
 - [x] Create project folder structure.
 - [x] Add basic project docs and templates.
-
+- [x] Add safe secret-handling rules.
