@@ -17,6 +17,7 @@ Build a maintainable knowledge and development workspace for DNF 70-version mate
 - `06-data`: structured game data, tables, configs, schemas, mappings.
 - `07-operations`: deployment, local runbook, maintenance, accounts, server notes.
 - `08-reviews`: weekly reviews, milestone reviews, lessons learned.
+- `09-client-modding`: client editing tools, APIs, file maps, patch records, and runbooks.
 - `90-archive`: outdated or completed materials.
 - `templates`: reusable project templates.
 
@@ -40,4 +41,3 @@ Build a maintainable knowledge and development workspace for DNF 70-version mate
 - Create a source inventory in `01-references/source-inventory.md`.
 - Define what this project will become: private server research, gameplay reconstruction, tool development, archive, or another direction.
 - Write the first milestone in `04-development/roadmap.md`.
-
