@@ -28,3 +28,5 @@ __pycache__/
 tmp/
 temp/
 
+# Sensitive personal documents kept locally only
+private/
