@@ -17,6 +17,12 @@ Check:
 09-client-modding/file-maps/
 ```
 
+Open PVF package:
+
+```text
+PVF Utility -> 文件(F) -> 打开封包 -> Script.pvf
+```
+
 Record:
 
 - original file path
@@ -55,4 +61,3 @@ Create a patch note under:
 ```text
 09-client-modding/patches/
 ```
-
