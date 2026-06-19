@@ -7,9 +7,13 @@
 
 | 物品名称 | 物品 ID | 类型 | PVF 文件 | 状态 | 备注 |
 | --- | ---: | --- | --- | --- | --- |
+| 炽星魔盒 | 896 | 魔盒/商城道具 | `stackable/cash/randomcerabox.stk` | 已定位 | 来自 `stackable.lst` |
 | 100w金币 | 3340 | 货币/奖励 | 待确认 | 待验证 | 常用发放或奖励配置 |
 | 硬币 | 7454 | 消耗品/复活币 | 待确认 | 待验证 | 常用发放或商城配置 |
 | +7增幅券 | 8235 | 强化/增幅券 | 待确认 | 待验证 | 增幅券 |
+| +10增幅 | 8236 | 增幅券 | `stackable/event/tcg/deed_10equipmentamplify.stk` | 已定位 | 来自 `stackable.lst` |
+| +12装备增幅券 | 8237 | 增幅券 | `stackable/event/tcg/deed_12equipmentamplify.stk` | 已定位 | 来自 `stackable.lst` |
+| 12-14账号绑定 | 8326 | 账号绑定/活动道具 | `stackable/event/tcg/event_8326.stk` | 已定位 | 来自 `stackable.lst` |
 | +13强化券 | 123006 | 强化券 | `stackable/123006.stk` | 已定位 | 强化券 |
 | 100疲劳药水无冷却 | 10000613 | 疲劳药水 | 待确认 | 待验证 | 无冷却版本 |
 
