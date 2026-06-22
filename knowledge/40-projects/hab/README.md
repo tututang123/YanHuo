@@ -33,6 +33,7 @@
 
 - [前端项目](frontend.md)
 - [WebView 壳项目](webview-android.md)
+- [App 资料](app-config.md)
 - [任务记录](tasks.md)
 
 ## 记录规则
