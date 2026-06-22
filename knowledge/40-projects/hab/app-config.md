@@ -11,6 +11,11 @@
 - 测试 CDN 前缀：`https://test-cdn2.ilikebreaking.com/hab`
 - 测试环境 H5 页面通常以这个前缀开头。
 - 从生产 CloudFront 链接切测试环境时，通常保留 `/h5/...` 后续路径，把前缀替换为测试 CDN 前缀。
+- 测试环境上传命令：
+
+```bash
+aws s3 cp hab s3://handigame/hab --acl public-read --recursive --profile handigame-client-test
+```
 
 示例：
 
