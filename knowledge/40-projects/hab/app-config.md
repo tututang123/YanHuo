@@ -17,6 +17,8 @@
 aws s3 cp hab s3://handigame/hab --acl public-read --recursive --profile handigame-client-test
 ```
 
+- About Bonus：`https://test-cdn2.ilikebreaking.com/hab/h5/about-bonus/index.html`
+
 示例：
 
 ```text

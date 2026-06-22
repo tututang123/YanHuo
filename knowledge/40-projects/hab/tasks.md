@@ -9,6 +9,11 @@
 - [x] 更新 HABet / HABPartners App 资料
   - 背景：记录官网、包名、生产服分享地址、pancard、协议和活动页链接。
   - 关联：`app-config.md`
+- [x] 上传 About Bonus 页面到 HAB 测试环境
+  - 来源：`C:\Users\zsw\Downloads\about-bonus\about-bonus\index.html`
+  - S3：`s3://handigame/hab/h5/about-bonus/index.html`
+  - 地址：`https://test-cdn2.ilikebreaking.com/hab/h5/about-bonus/index.html`
+  - 验证：HTTP 200，标题 `About Bonus`
 
 ## 待处理
 
@@ -20,3 +25,4 @@
 - [x] 记录 HAB 前端项目路径：`E:\flutter\hab_client`
 - [x] 记录 HAB WebView 项目路径：`E:\work\hym\android\habet_web_android`
 - [x] 建立 HABet / HABPartners App 资料索引。
+- [x] 上传并验证 About Bonus 测试环境页面。
