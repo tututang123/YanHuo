@@ -37,6 +37,12 @@ aws s3 cp hab s3://handigame/hab --acl public-read --recursive --profile handiga
 
 ### 生产服链接
 
+- 生产环境上传命令：
+
+```bash
+aws s3 cp hab s3://handigame-client2/hab --acl public-read --recursive --profile handigame-client2-s3
+```
+
 - 分享：`https://invite.habet.online/`
 - pancard 图片：`https://h5.habet.online/pan/index.html`
 - 上传成功页面：`https://h5.habet.online/top-up/success.html`
