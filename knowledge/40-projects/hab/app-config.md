@@ -6,6 +6,19 @@
 
 ## HABet App
 
+### 测试环境
+
+- 测试 CDN 前缀：`https://test-cdn2.ilikebreaking.com/hab`
+- 测试环境 H5 页面通常以这个前缀开头。
+- 从生产 CloudFront 链接切测试环境时，通常保留 `/h5/...` 后续路径，把前缀替换为测试 CDN 前缀。
+
+示例：
+
+```text
+生产：https://d2k4z7x2ql166o.cloudfront.net/hab/h5/protocol/privacy-policy.html
+测试：https://test-cdn2.ilikebreaking.com/hab/h5/protocol/privacy-policy.html
+```
+
 ### 官网
 
 - 官网：`https://habet.online/`
