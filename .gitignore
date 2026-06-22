@@ -30,3 +30,5 @@ temp/
 
 # Sensitive personal documents kept locally only
 private/
+knowledge/**/private/
+knowledge/**/sensitive/
