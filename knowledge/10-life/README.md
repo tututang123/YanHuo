@@ -9,4 +9,4 @@
 - `habits.md`：习惯
 - `relationships.md`：关系
 - `energy.md`：精力
-
+- 装修和居住决策放在 `../40-projects/home-renovation`。

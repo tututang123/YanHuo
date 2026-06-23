@@ -13,3 +13,4 @@
 ## 当前项目
 
 - `hab`：HAB 前端和 Android WebView 壳项目。
+- `home-renovation`：房子装修、全屋定制和居住决策。
