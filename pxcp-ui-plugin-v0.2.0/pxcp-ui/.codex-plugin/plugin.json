@@ -1,0 +1,25 @@
+{
+  "name": "pxcp-ui",
+  "version": "0.2.0+codex.20260702023249",
+  "description": "Extract PXCP design files into artboard specs, assets, previews, implementation hints, and reference screenshots for precise UI implementation.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PXCP UI",
+    "shortDescription": "Extract PXCP designs into UI specs, previews, and implementation hints.",
+    "longDescription": "PXCP UI parses .pxcp design files, extracts embedded artboard JSON and image assets, generates CSS-ready layer summaries, browser previews, component candidates, responsive hints, and guides Codex through precise UI implementation with screenshot verification.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "PXCP extraction",
+      "Browser preview generation",
+      "CSS-ready layer summaries",
+      "Component and responsive hints",
+      "Design-to-code guidance",
+      "Visual reference workflow"
+    ],
+    "defaultPrompt": "Extract this .pxcp file and help me implement the selected artboard precisely."
+  }
+}
