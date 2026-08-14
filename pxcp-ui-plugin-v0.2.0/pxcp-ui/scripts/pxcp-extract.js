@@ -7,7 +7,7 @@ const PNG_SIGNATURE = Buffer.from([
   0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
 ]);
 const JPG_SIGNATURE = Buffer.from([0xff, 0xd8, 0xff]);
-const JSON_SIGNATURE = Buffer.from('{"name"');
+const JSON_SIGNATURES = [Buffer.from('{"name"'), Buffer.from('{"artboardId"')];
 
 function usage() {
   console.log(`Usage:
@@ -127,10 +127,22 @@ function readArtboards(buffer) {
   const artboards = [];
   let offset = 0;
 
-  while ((offset = buffer.indexOf(JSON_SIGNATURE, offset)) !== -1) {
+  while (offset < buffer.length) {
+    const matches = JSON_SIGNATURES
+      .map((signature) => ({
+        signature,
+        offset: buffer.indexOf(signature, offset),
+      }))
+      .filter((match) => match.offset !== -1)
+      .sort((a, b) => a.offset - b.offset);
+
+    if (matches.length === 0) break;
+
+    const match = matches[0];
+    offset = match.offset;
     const end = findJsonEnd(buffer, offset);
     if (end === -1) {
-      offset += JSON_SIGNATURE.length;
+      offset += match.signature.length;
       continue;
     }
 
@@ -153,7 +165,7 @@ function readArtboards(buffer) {
       // Not every {"name"... sequence in the binary payload is an artboard JSON.
     }
 
-    offset += JSON_SIGNATURE.length;
+    offset += match.signature.length;
   }
 
   return artboards;

@@ -27,6 +27,7 @@ __pycache__/
 .cache/
 tmp/
 temp/
+_bmad-output/
 
 # Sensitive personal documents kept locally only
 private/

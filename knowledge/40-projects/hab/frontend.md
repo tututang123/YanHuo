@@ -6,6 +6,16 @@
 E:\flutter\hab_client
 ```
 
+## 代理客户端
+
+```text
+E:\flutter\HAPartners
+```
+
+- 项目类型：Flutter 代理客户端项目。
+- 默认称呼：`hab 代理客户端`、`hab 代理端`、`HAPartners`。
+- 处理代理端需求时优先进入此目录，不默认使用 `hab_client`。
+
 ## 技术栈
 
 - Flutter 项目名：`hab_client`

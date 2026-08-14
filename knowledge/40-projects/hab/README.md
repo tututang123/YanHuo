@@ -3,9 +3,12 @@
 ## 项目别名
 
 - `hab 前端项目`：`E:\flutter\hab_client`
+- `hab 代理客户端项目`：`E:\flutter\HAPartners`
 - `hab webview 项目`：`E:\work\hym\android\habet_web_android`
 
 以后提到 `hab 前端`，默认指 Flutter 前端项目 `hab_client`。
+
+以后提到 `hab 代理客户端`、`hab 代理端` 或 `HAPartners`，默认指 Flutter 代理客户端项目 `HAPartners`。
 
 以后提到 `hab webview`、`hab Android 壳` 或 `webview 项目`，默认指 Android WebView 壳项目 `habet_web_android`。
 
@@ -16,16 +19,18 @@
 ## 项目组成
 
 - Flutter 前端：开发业务页面、网络请求、路由、资源、平台兼容逻辑。
+- Flutter 代理客户端：HAB 代理端客户端项目。
 - Android WebView 壳：承载 Flutter Web 构建产物，负责 Android 壳层能力、打包和发布。
 
 ## 当前状态
 
-- 已确认两个本地项目目录都存在。
+- 已确认 `hab_client`、`HAPartners`、`habet_web_android` 本地项目目录都存在。
 - 已建立项目记忆，后续工作记录放在本目录。
 
 ## 下一步行动
 
 - 梳理 `hab_client` 的构建方式、目录约定和常用命令。
+- 梳理 `HAPartners` 的构建方式、目录约定和常用命令。
 - 梳理 `habet_web_android` 如何接收 Web 包以及发布流程。
 - 后续每次处理 HAB 相关事项，记录任务、结论、风险和归档位置。
 
@@ -34,6 +39,7 @@
 - [前端项目](frontend.md)
 - [WebView 壳项目](webview-android.md)
 - [App 资料](app-config.md)
+- [HAPartner API 摘要](api/hapartner-api-summary.md)
 - [任务记录](tasks.md)
 
 ## 记录规则

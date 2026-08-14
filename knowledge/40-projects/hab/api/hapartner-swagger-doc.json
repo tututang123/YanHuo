@@ -1,0 +1,2406 @@
+{
+    "schemes": [],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server celler server.",
+        "title": "Hapartner API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "host": "test-api.hapartner.online:443",
+    "basePath": "/api/v1",
+    "paths": {
+        "/account-login": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "登录模块"
+                ],
+                "summary": "账号登录",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.AccountLoginRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.LoginResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/affiliates-commissions": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "代理模块"
+                ],
+                "summary": "代理佣金列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header"
+                    },
+                    {
+                        "type": "string",
+                        "example": "2024-12-31T23:59:59Z",
+                        "description": "结束时间，格式为 RFC3339",
+                        "name": "endTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "example": 1,
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "example": 20,
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "2024-01-01T00:00:00Z",
+                        "description": "开始时间，格式为 RFC3339",
+                        "name": "startTime",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.AffiliatesCommissionsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/affiliates-home": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "代理模块"
+                ],
+                "summary": "代理主页",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.AffiliatesHomeResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/affiliates-referrals": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "代理模块"
+                ],
+                "summary": "下级列表",
+                "parameters": [
+                    {
+                        "enum": [
+                            "all",
+                            "registered",
+                            "guest"
+                        ],
+                        "type": "string",
+                        "example": "all",
+                        "x-enum-varnames": [
+                            "ReferralAccountFilterAll",
+                            "ReferralAccountFilterRegistered",
+                            "ReferralAccountFilterGuest"
+                        ],
+                        "name": "accountFilter",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "357100001",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "example": 1,
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "all",
+                            "recharged",
+                            "not_recharged"
+                        ],
+                        "type": "string",
+                        "example": "all",
+                        "x-enum-varnames": [
+                            "ReferralRechargeFilterAll",
+                            "ReferralRechargeFilterRecharged",
+                            "ReferralRechargeFilterNotRecharged"
+                        ],
+                        "name": "rechargeFilter",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "example": 20,
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "binding_latest",
+                            "binding_earliest",
+                            "recharge_latest",
+                            "recharge_highest"
+                        ],
+                        "type": "string",
+                        "example": "binding_latest",
+                        "x-enum-varnames": [
+                            "ReferralSortBindingLatest",
+                            "ReferralSortBindingEarliest",
+                            "ReferralSortRechargeLatest",
+                            "ReferralSortRechargeHighest"
+                        ],
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "example": false,
+                        "name": "starredOnly",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "binding",
+                            "unbound"
+                        ],
+                        "type": "string",
+                        "example": "binding",
+                        "x-enum-varnames": [
+                            "ReferralStatusBinding",
+                            "ReferralStatusUnbound"
+                        ],
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "all_time",
+                            "today",
+                            "last_7_days",
+                            "last_30_days"
+                        ],
+                        "type": "string",
+                        "example": "all_time",
+                        "x-enum-varnames": [
+                            "ReferralUnboundRangeAllTime",
+                            "ReferralUnboundRangeToday",
+                            "ReferralUnboundRangeLast7Days",
+                            "ReferralUnboundRangeLast30Days"
+                        ],
+                        "name": "unboundRange",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.AffiliatesReferralsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/affiliates-referrals-home": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "代理模块"
+                ],
+                "summary": "下级详情总览",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.AffiliatesReferralsHomeResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/affiliates-referrals/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "代理模块"
+                ],
+                "summary": "下级详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "referral detail id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.AffiliatesReferralDetailResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/affiliates-referrals/{id}/star": {
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "代理模块"
+                ],
+                "summary": "设置下级特别关注",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "referral detail id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.UpdateReferralStarRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.UpdateReferralStarResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/bind-phone": {
+            "post": {
+                "description": "用户绑定手机号，首次登录时需要绑定",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "绑定手机号",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.BindPhoneRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.BindPhoneResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/check-verification-code": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "其他模块"
+                ],
+                "summary": "校验验证码",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CheckVerificationCodeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CheckVerificationCodeResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/create-user": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "登录模块"
+                ],
+                "summary": "账号注册",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CheckVerificationCodeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CreateUserResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/customer-service": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "客服接口",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CustomerServiceResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/event/tracks": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "事件模块"
+                ],
+                "summary": "事件数据上传接口",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.ReceiveTrackRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "tags": [
+                    "登录模块"
+                ],
+                "summary": "登出",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/personal-profile": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "获取用户的个人信息，包括Account ID、手机号和密码重置选项",
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "个人信息",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.PersonalProfileResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/reset-password": {
+            "post": {
+                "description": "用户重置密码，需要验证手机号和验证码",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "密码重置",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.ResetPasswordRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.ResetPasswordResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/rule": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "其他模块"
+                ],
+                "summary": "规则",
+                "parameters": [
+                    {
+                        "enum": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6
+                        ],
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1,
+                        "x-enum-varnames": [
+                            "JTTGlobalRule",
+                            "JTTHowItWork",
+                            "JTTLevel",
+                            "JTTTermOfUse",
+                            "JTTPrivacy",
+                            "JTTCommonProblem"
+                        ],
+                        "name": "type",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.GetRuleResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/send-verification-code": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "其他模块"
+                ],
+                "summary": "发送验证码",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header"
+                    },
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.SendVerificationCodeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/terms_url": {
+            "post": {
+                "description": "返回隐私政策、服务条款和条款和条件的URL",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "获取条款和隐私政策URL",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.TermsUrlResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/version-check": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "其他模块"
+                ],
+                "summary": "版本检查",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "设备信息",
+                        "name": "P",
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.VersionCheckResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/withdraw-accounts": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "获取提现账号列表",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.ListWithdrawInfoResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "修改提现账号",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.UpdateWithdrawAccountRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "新增提现账号",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CreateWithdrawAccountRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.CreateWithdrawAccountResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/withdraw-apply": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "提现",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.WithdrawRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.WithdrawResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/withdraw-page-info": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "获取提现页面所需信息，包括可提现金额、支付渠道配置等",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "提现页面信息",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.WithdrawPageInfoResponseData"
+                        }
+                    }
+                }
+            }
+        },
+        "/withdraw-preflight": {
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "提现预检",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/withdraw-record": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "提现模块"
+                ],
+                "summary": "提现记录",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "example": 1,
+                        "name": "lastId",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "example": 20,
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            1,
+                            2,
+                            3
+                        ],
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 1,
+                        "x-enum-varnames": [
+                            "WTRunning",
+                            "WTSuccess",
+                            "WTFail"
+                        ],
+                        "description": "1 提现中 2 成功 3 失败",
+                        "name": "type",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/jfq_server_api_v1.WithdrawOrderResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "jfq_server_api_v1.AccountLoginRequest": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "type": "string",
+                    "example": "1234567890"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "Abc123"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesCommissionsResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.EarningDetailResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesHomeResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.AffiliatesHomeResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesHomeResponseData": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "description": "账户ID",
+                    "type": "string"
+                },
+                "earning_details": {
+                    "description": "收益明细",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.EarningDetailItem"
+                    }
+                },
+                "earning_tips": {
+                    "description": "收益说明",
+                    "type": "string"
+                },
+                "first_recharge_rebate_rate": {
+                    "description": "首充返利比例",
+                    "type": "string"
+                },
+                "guest_recharge_amount": {
+                    "description": "游客充值金额",
+                    "type": "integer"
+                },
+                "invite_url": {
+                    "description": "邀请连接",
+                    "type": "string"
+                },
+                "new_recharged_referrals": {
+                    "description": "今日新增付费下级数量",
+                    "type": "integer"
+                },
+                "new_referrals_today": {
+                    "description": "今日新增下级数量",
+                    "type": "integer"
+                },
+                "pending_earnings": {
+                    "description": "待结算收益",
+                    "type": "integer"
+                },
+                "share_text": {
+                    "description": "分享入口文本",
+                    "type": "string"
+                },
+                "subsequent_recharge_rebate_rate": {
+                    "description": "Subsequent返利比例",
+                    "type": "string"
+                },
+                "today_earnings": {
+                    "description": "今日收益",
+                    "type": "integer"
+                },
+                "total_earnings": {
+                    "description": "累计总收益",
+                    "type": "integer"
+                },
+                "total_referrals": {
+                    "description": "所有下级总数量",
+                    "type": "integer"
+                },
+                "withdrawable_balance": {
+                    "description": "可提现余额",
+                    "type": "integer"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesReferralDetailResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.ReferralCardItem"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesReferralsHomeResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.AffiliatesReferralsHomeResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesReferralsHomeResponseData": {
+            "type": "object",
+            "properties": {
+                "activeReferrals": {
+                    "type": "integer"
+                },
+                "guest": {
+                    "type": "integer"
+                },
+                "inviteUrl": {
+                    "type": "string"
+                },
+                "newToday": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.ReferralCardItem"
+                    }
+                },
+                "recentRecharge": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.ReferralCardItem"
+                    }
+                },
+                "recharged": {
+                    "type": "integer"
+                },
+                "registered": {
+                    "type": "integer"
+                },
+                "shareText": {
+                    "type": "string"
+                },
+                "starred": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.ReferralCardItem"
+                    }
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesReferralsResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.AffiliatesReferralsResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.AffiliatesReferralsResponseData": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.ReferralCardItem"
+                    }
+                }
+            }
+        },
+        "jfq_server_api_v1.BindPhoneRequest": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "type": "string",
+                    "example": "1309775982"
+                },
+                "code": {
+                    "type": "string",
+                    "example": "1234"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "9310926499"
+                }
+            }
+        },
+        "jfq_server_api_v1.BindPhoneResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.BindPhoneResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.BindPhoneResponseData": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/jfq_server_pkg_types_enums.UserStatus"
+                }
+            }
+        },
+        "jfq_server_api_v1.CheckVerificationCodeRequest": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "9310926499"
+                },
+                "type": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/jfq_server_pkg_types_enums.VerificationCodeType"
+                        }
+                    ],
+                    "example": 1
+                }
+            }
+        },
+        "jfq_server_api_v1.CheckVerificationCodeResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.CheckVerificationCodeResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.CheckVerificationCodeResponseData": {
+            "type": "object",
+            "properties": {
+                "credentials": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.CreateUserResponseData": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "account_id": {
+                    "type": "string"
+                },
+                "is_new_user": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "jfq_server_api_v1.CreateWithdrawAccountRequest": {
+            "type": "object",
+            "properties": {
+                "account_holder_name": {
+                    "type": "string"
+                },
+                "account_number": {
+                    "type": "string"
+                },
+                "ifsc_code": {
+                    "type": "string"
+                },
+                "pay_channel": {
+                    "description": "Phone             string `json:\"phone\" v:\"required\"`\nEmail             string `json:\"email\" v:\"required\"`\nAddress           string `json:\"address\" v:\"required\"`",
+                    "type": "integer"
+                },
+                "pay_method": {
+                    "type": "integer"
+                }
+            }
+        },
+        "jfq_server_api_v1.CreateWithdrawAccountResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.CreateWithdrawAccountResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.CreateWithdrawAccountResponseData": {
+            "type": "object",
+            "properties": {
+                "account_holder_name": {
+                    "type": "string",
+                    "example": "John Doe"
+                },
+                "account_number": {
+                    "type": "string",
+                    "example": "1234567890123456"
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "ifsc_code": {
+                    "type": "string",
+                    "example": "HDFC0000123"
+                },
+                "pay_channel": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "pay_method": {
+                    "type": "integer",
+                    "example": 1
+                }
+            }
+        },
+        "jfq_server_api_v1.CustomerServiceResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.CustomerServiceResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.CustomerServiceResponseData": {
+            "type": "object",
+            "properties": {
+                "authedUrl": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.EarningDetailItem": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "description": "金额",
+                    "type": "integer"
+                },
+                "countdown": {
+                    "description": "审核倒计时(秒)，仅在Pending状态下显示 最后一日0点开始显示倒计时",
+                    "type": "integer"
+                },
+                "date": {
+                    "description": "日期，格式为 dd.mm.yy",
+                    "type": "string"
+                },
+                "days_left": {
+                    "description": "审核倒计时(天数)",
+                    "type": "string"
+                },
+                "is_guest": {
+                    "description": "是否是游客",
+                    "type": "boolean"
+                },
+                "is_today": {
+                    "description": "是否是今日",
+                    "type": "boolean"
+                },
+                "status": {
+                    "description": "状态：Pending, Success, Fail对应 1，2，3",
+                    "type": "integer"
+                }
+            }
+        },
+        "jfq_server_api_v1.EarningDetailResponseData": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.EarningDetailItem"
+                    }
+                }
+            }
+        },
+        "jfq_server_api_v1.GetRuleResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.GetRuleResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.GetRuleResponseData": {
+            "type": "object",
+            "properties": {
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.ListWithdrawAccountResponseResultItem": {
+            "type": "object",
+            "properties": {
+                "account_holder_name": {
+                    "type": "string"
+                },
+                "account_number": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "ifsc_code": {
+                    "type": "string"
+                },
+                "pay_channel": {
+                    "type": "integer"
+                },
+                "pay_method": {
+                    "type": "integer"
+                },
+                "phone": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.ListWithdrawInfoResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.ListWithdrawAccountResponseResultItem"
+                    }
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.LoginResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.LoginResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.LoginResponseData": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/jfq_server_pkg_types_enums.UserStatus"
+                }
+            }
+        },
+        "jfq_server_api_v1.PaymentChannelInfo": {
+            "type": "object",
+            "properties": {
+                "channel_name": {
+                    "description": "通道名称",
+                    "type": "string",
+                    "example": "Bank Transfer"
+                },
+                "fee_rate": {
+                    "description": "费率(单位: 万分之一)",
+                    "type": "integer",
+                    "example": 10
+                },
+                "id": {
+                    "description": "配置ID",
+                    "type": "integer",
+                    "example": 1
+                },
+                "is_active": {
+                    "description": "是否激活",
+                    "type": "boolean",
+                    "example": true
+                },
+                "max_amount": {
+                    "description": "最大金额",
+                    "type": "integer",
+                    "example": 1000000
+                },
+                "min_amount": {
+                    "description": "最小金额",
+                    "type": "integer",
+                    "example": 10000
+                },
+                "payment_channel": {
+                    "description": "支付渠道 1.tpay 2.cashfree",
+                    "type": "integer",
+                    "example": 1
+                },
+                "payment_method": {
+                    "description": "支付方式 1.bank 2.upi",
+                    "type": "integer",
+                    "example": 1
+                }
+            }
+        },
+        "jfq_server_api_v1.PersonalProfileResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.PersonalProfileResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.PersonalProfileResponseData": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "withdraw_threshold": {
+                    "$ref": "#/definitions/jfq_server_api_v1.WithdrawThreshold"
+                },
+                "withdrawable": {
+                    "type": "integer"
+                }
+            }
+        },
+        "jfq_server_api_v1.ReceiveTrackRequest": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "base64编码后的事件数据",
+                    "type": "string"
+                },
+                "merchantNo": {
+                    "description": "商户编号",
+                    "type": "string",
+                    "example": "merchant-001"
+                },
+                "sign": {
+                    "description": "签名",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "接口请求时间戳",
+                    "type": "integer",
+                    "example": 171170095
+                }
+            }
+        },
+        "jfq_server_api_v1.ReferralAccountFilter": {
+            "type": "string",
+            "enum": [
+                "all",
+                "registered",
+                "guest"
+            ],
+            "x-enum-varnames": [
+                "ReferralAccountFilterAll",
+                "ReferralAccountFilterRegistered",
+                "ReferralAccountFilterGuest"
+            ]
+        },
+        "jfq_server_api_v1.ReferralCardItem": {
+            "type": "object",
+            "properties": {
+                "accountStatus": {
+                    "type": "string"
+                },
+                "bindStatus": {
+                    "$ref": "#/definitions/jfq_server_api_v1.ReferralStatus"
+                },
+                "boundAt": {
+                    "type": "string"
+                },
+                "commissionLast7Days": {
+                    "type": "integer"
+                },
+                "displayText": {
+                    "$ref": "#/definitions/jfq_server_api_v1.ReferralDisplayText"
+                },
+                "firstRechargeAmount": {
+                    "type": "integer"
+                },
+                "firstRechargeTime": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "isNewToday": {
+                    "type": "boolean"
+                },
+                "lastRechargeAmount": {
+                    "type": "integer"
+                },
+                "lastRechargeTime": {
+                    "type": "string"
+                },
+                "rechargeCount": {
+                    "type": "integer"
+                },
+                "rechargeStatus": {
+                    "type": "string"
+                },
+                "registerTime": {
+                    "type": "string"
+                },
+                "starred": {
+                    "type": "boolean"
+                },
+                "starredAt": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "totalCommission": {
+                    "type": "integer"
+                },
+                "totalRechargeAmount": {
+                    "type": "integer"
+                },
+                "unboundAt": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.ReferralDisplayText": {
+            "type": "object",
+            "properties": {
+                "bindText": {
+                    "type": "string"
+                },
+                "commissionLast7DaysText": {
+                    "type": "string"
+                },
+                "firstRechargeText": {
+                    "type": "string"
+                },
+                "lastRechargeText": {
+                    "type": "string"
+                },
+                "rechargeText": {
+                    "type": "string"
+                },
+                "totalCommissionText": {
+                    "type": "string"
+                },
+                "totalRechargeText": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.ReferralRechargeFilter": {
+            "type": "string",
+            "enum": [
+                "all",
+                "recharged",
+                "not_recharged"
+            ],
+            "x-enum-varnames": [
+                "ReferralRechargeFilterAll",
+                "ReferralRechargeFilterRecharged",
+                "ReferralRechargeFilterNotRecharged"
+            ]
+        },
+        "jfq_server_api_v1.ReferralSort": {
+            "type": "string",
+            "enum": [
+                "binding_latest",
+                "binding_earliest",
+                "recharge_latest",
+                "recharge_highest"
+            ],
+            "x-enum-varnames": [
+                "ReferralSortBindingLatest",
+                "ReferralSortBindingEarliest",
+                "ReferralSortRechargeLatest",
+                "ReferralSortRechargeHighest"
+            ]
+        },
+        "jfq_server_api_v1.ReferralStatus": {
+            "type": "string",
+            "enum": [
+                "binding",
+                "unbound"
+            ],
+            "x-enum-varnames": [
+                "ReferralStatusBinding",
+                "ReferralStatusUnbound"
+            ]
+        },
+        "jfq_server_api_v1.ReferralUnboundRange": {
+            "type": "string",
+            "enum": [
+                "all_time",
+                "today",
+                "last_7_days",
+                "last_30_days"
+            ],
+            "x-enum-varnames": [
+                "ReferralUnboundRangeAllTime",
+                "ReferralUnboundRangeToday",
+                "ReferralUnboundRangeLast7Days",
+                "ReferralUnboundRangeLast30Days"
+            ]
+        },
+        "jfq_server_api_v1.ResetPasswordRequest": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "example": "1234"
+                },
+                "new_password": {
+                    "type": "string",
+                    "example": "Abc123"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "9310926499"
+                }
+            }
+        },
+        "jfq_server_api_v1.ResetPasswordResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.ResetPasswordResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.ResetPasswordResponseData": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.SendVerificationCodeRequest": {
+            "type": "object",
+            "properties": {
+                "phone": {
+                    "type": "string",
+                    "example": "9310926499"
+                },
+                "type": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/jfq_server_pkg_types_enums.VerificationCodeType"
+                        }
+                    ],
+                    "example": 1
+                }
+            }
+        },
+        "jfq_server_api_v1.TermsUrlResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.TermsUrlResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.TermsUrlResponseData": {
+            "type": "object",
+            "properties": {
+                "privacy_policy": {
+                    "description": "隐私政策",
+                    "type": "string"
+                },
+                "terms_and_conditions": {
+                    "description": "条款和条件",
+                    "type": "string"
+                },
+                "terms_of_service": {
+                    "description": "服务条款",
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.UpdateReferralStarRequest": {
+            "type": "object",
+            "properties": {
+                "starred": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "jfq_server_api_v1.UpdateReferralStarResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.UpdateReferralStarResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.UpdateReferralStarResponseData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "starred": {
+                    "type": "boolean"
+                },
+                "starredAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.UpdateWithdrawAccountRequest": {
+            "type": "object",
+            "properties": {
+                "account_holder_name": {
+                    "type": "string"
+                },
+                "account_number": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "ifsc_code": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.VersionCheckResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.VersionCheckResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.VersionCheckResponseData": {
+            "type": "object",
+            "properties": {
+                "cueFreq": {
+                    "$ref": "#/definitions/jfq_server_pkg_types_enums.JfqAppUpdateCueFreq"
+                },
+                "displayText": {
+                    "type": "string"
+                },
+                "downloadUrl": {
+                    "type": "string"
+                },
+                "updateType": {
+                    "$ref": "#/definitions/jfq_server_pkg_types_enums.JfqAppUpdateType"
+                },
+                "updatedVersion": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawOrderData": {
+            "type": "object",
+            "properties": {
+                "account_number": {
+                    "description": "收款账户",
+                    "type": "string",
+                    "example": "788767672893991231"
+                },
+                "amount": {
+                    "description": "金额",
+                    "type": "integer",
+                    "example": 10000
+                },
+                "balance": {
+                    "description": "余额",
+                    "type": "integer",
+                    "example": 99990000
+                },
+                "ifsc_code": {
+                    "description": "ifscCode",
+                    "type": "string",
+                    "example": "98827732"
+                },
+                "order_no": {
+                    "description": "订单号",
+                    "type": "string",
+                    "example": "788767672893991231"
+                },
+                "pay_channel": {
+                    "description": "提现渠道",
+                    "type": "integer",
+                    "example": 1
+                },
+                "pay_method": {
+                    "description": "提现",
+                    "type": "integer",
+                    "example": 1
+                },
+                "reason": {
+                    "description": "原因",
+                    "type": "string",
+                    "example": "fail reason :user card is illegal"
+                },
+                "status": {
+                    "description": "状态: In review 1, Success 2, Failed 3",
+                    "type": "integer",
+                    "example": 2
+                },
+                "time": {
+                    "description": "时间 (RFC3339格式)",
+                    "type": "string",
+                    "example": "2024-03-01T23:23:23Z"
+                },
+                "withdraw_id": {
+                    "description": "订单ID",
+                    "type": "integer",
+                    "example": 123
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawOrderResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.WithdrawOrderResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawOrderResponseData": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.WithdrawOrderData"
+                    }
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawPageInfoResponseData": {
+            "type": "object",
+            "properties": {
+                "account_id": {
+                    "description": "账户ID",
+                    "type": "string",
+                    "example": "1234567890"
+                },
+                "payment_channels": {
+                    "description": "支付渠道列表",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/jfq_server_api_v1.PaymentChannelInfo"
+                    }
+                },
+                "withdrawable": {
+                    "description": "可提现金额",
+                    "type": "integer",
+                    "example": 100000
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawRequest": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "integer",
+                    "example": 100000
+                },
+                "payment_channel": {
+                    "description": "支付渠道 1.tpay 2.cashfree",
+                    "type": "integer"
+                },
+                "payment_method": {
+                    "description": "支付方式 1.bank 2.upi",
+                    "type": "integer"
+                },
+                "withdraw_account_id": {
+                    "description": "提现账号ID",
+                    "type": "integer"
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/jfq_server_api_v1.WithdrawResponseData"
+                },
+                "errors": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawResponseData": {
+            "type": "object",
+            "properties": {
+                "fee": {
+                    "description": "手续费",
+                    "type": "integer",
+                    "example": 1000
+                },
+                "first_withdrawal": {
+                    "description": "是否第一次提现",
+                    "type": "boolean",
+                    "example": false
+                },
+                "real_amount": {
+                    "description": "实际到账金额",
+                    "type": "integer",
+                    "example": 100000
+                },
+                "total_amount": {
+                    "description": "总金额（提现金额+手续费）",
+                    "type": "integer",
+                    "example": 101000
+                }
+            }
+        },
+        "jfq_server_api_v1.WithdrawThreshold": {
+            "type": "object",
+            "properties": {
+                "fee": {
+                    "type": "string"
+                },
+                "max_amount": {
+                    "type": "integer"
+                },
+                "min_amount": {
+                    "type": "integer"
+                }
+            }
+        },
+        "jfq_server_pkg_types_enums.JfqAppUpdateCueFreq": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                1,
+                2,
+                3
+            ],
+            "x-enum-comments": {
+                "JUCFDay1": "1天提示1次",
+                "JUCFDay3": "3天提示1次",
+                "JUCFDay7": "7天提示1次"
+            },
+            "x-enum-descriptions": [
+                "1天提示1次",
+                "3天提示1次",
+                "7天提示1次"
+            ],
+            "x-enum-varnames": [
+                "JUCFDay1",
+                "JUCFDay3",
+                "JUCFDay7"
+            ]
+        },
+        "jfq_server_pkg_types_enums.JfqAppUpdateType": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                1,
+                2
+            ],
+            "x-enum-comments": {
+                "JUTChoice": "选择更新",
+                "JUTForce": "强制更新"
+            },
+            "x-enum-descriptions": [
+                "强制更新",
+                "选择更新"
+            ],
+            "x-enum-varnames": [
+                "JUTForce",
+                "JUTChoice"
+            ]
+        },
+        "jfq_server_pkg_types_enums.JfqTextType": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "x-enum-varnames": [
+                "JTTGlobalRule",
+                "JTTHowItWork",
+                "JTTLevel",
+                "JTTTermOfUse",
+                "JTTPrivacy",
+                "JTTCommonProblem"
+            ]
+        },
+        "jfq_server_pkg_types_enums.UserStatus": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                0,
+                1
+            ],
+            "x-enum-comments": {
+                "USLoginToBoundDevice": "登录老设备(设备号已存在绑定手机号的账号)",
+                "USNormal": "正常"
+            },
+            "x-enum-descriptions": [
+                "正常",
+                "登录老设备(设备号已存在绑定手机号的账号)"
+            ],
+            "x-enum-varnames": [
+                "USNormal",
+                "USLoginToBoundDevice"
+            ]
+        },
+        "jfq_server_pkg_types_enums.VerificationCodeType": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                1,
+                2,
+                3
+            ],
+            "x-enum-varnames": [
+                "VCLogin",
+                "VCWithdrawal",
+                "VCCheckUser"
+            ]
+        },
+        "jfq_server_pkg_types_enums.WithdrawType": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+                1,
+                2,
+                3
+            ],
+            "x-enum-varnames": [
+                "WTRunning",
+                "WTSuccess",
+                "WTFail"
+            ]
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
