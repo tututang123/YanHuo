@@ -14,6 +14,9 @@
 | +10增幅 | 8236 | 增幅券 | `stackable/event/tcg/deed_10equipmentamplify.stk` | 已定位 | 来自 `stackable.lst` |
 | +12装备增幅券 | 8237 | 增幅券 | `stackable/event/tcg/deed_12equipmentamplify.stk` | 已定位 | 来自 `stackable.lst` |
 | 12-14账号绑定 | 8326 | 账号绑定/活动道具 | `stackable/event/tcg/event_8326.stk` | 已定位 | 来自 `stackable.lst` |
+| 直升满级券 | 478893 | 等级/活动道具 | 待确认 | 待验证 | 用户提供，用于活动奖励发放 |
+| 高级宠物盒碎片 | 478896 | 宠物/碎片 | `stackable/quest/gjcwhcp.stk` | 已定位 | 炽星魔盒奖励列表中也出现该 ID |
+| 特殊的狄瑞吉之血(可交易) | 490004323 | 消耗品/材料 | 待确认 | 待验证 | 已从 `itemshop/equipmentshop7.shp` 出售列表删除 |
 | +13强化券 | 123006 | 强化券 | `stackable/123006.stk` | 已定位 | 强化券 |
 | 100疲劳药水无冷却 | 10000613 | 疲劳药水 | 待确认 | 待验证 | 无冷却版本 |
 

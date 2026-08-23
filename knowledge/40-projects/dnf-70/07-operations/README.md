@@ -11,4 +11,4 @@
 - `log-review-workflow.md`：日志排查流程。
 - `one-click-log-review-tool.md`：一键日志分析工具说明。
 - `secret-handling.md`：敏感信息处理规则。
-
+- `server-config-runbook.md`：服务器配置替换、备份和 Frida 日志验收规则。
