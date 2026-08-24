@@ -87,9 +87,16 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
     quoteArg(codexBin),
     ...args.map(quoteArg),
   ].join(' ');
+  const useScript = process.platform !== 'win32';
+  const execCommand = useScript ? [
+    'script',
+    '-qec',
+    quoteArg(command),
+    '/dev/null',
+  ].join(' ') : command;
 
   const result = await new Promise((resolve) => {
-    const child = spawn(codexBin, args, {
+    const child = spawn(useScript ? 'script' : codexBin, useScript ? ['-qec', command, '/dev/null'] : args, {
       cwd: repoRoot,
       env: {
         ...process.env,
@@ -111,7 +118,7 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
 
     child.on('error', (error) => {
       resolve({
-        command,
+        command: execCommand,
         exitCode: -1,
         stdout: tailText(stdout),
         stderr: tailText(`${stderr}\n${error.stack || error.message}`),
@@ -131,7 +138,7 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
       }
 
       resolve({
-        command,
+        command: execCommand,
         exitCode: typeof exitCode === 'number' ? exitCode : 1,
         stdout: tailText(stdout),
         stderr: tailText(stderr),
