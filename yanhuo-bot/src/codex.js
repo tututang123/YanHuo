@@ -82,6 +82,7 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
   }
 
   const prompt = buildPrompt({ input, repoRoot, profile });
+  args.push(prompt);
   const command = [
     quoteArg(codexBin),
     ...args.map(quoteArg),
@@ -93,7 +94,7 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
       env: {
         ...process.env,
       },
-      stdio: ['pipe', 'pipe', 'pipe'],
+      stdio: ['ignore', 'pipe', 'pipe'],
     });
 
     let stdout = '';
@@ -139,8 +140,6 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
       });
     });
 
-    child.stdin.write(`${prompt}\n`);
-    child.stdin.end();
   });
 
   return result;
