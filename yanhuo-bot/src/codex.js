@@ -1,7 +1,7 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { spawn } = require('child_process');
+const https = require('https');
 
 function parseBoolean(value, fallback = false) {
   if (value === undefined || value === null || value === '') return fallback;
@@ -20,6 +20,69 @@ function tailText(text, limit = 4000) {
   const value = String(text || '');
   if (value.length <= limit) return value.trim();
   return `...${value.slice(-limit).trim()}`;
+}
+
+function readCodexApiKey() {
+  if (process.env.OPENAI_API_KEY) return process.env.OPENAI_API_KEY;
+  const home = process.env.CODEX_HOME || path.join(os.homedir(), '.codex');
+  const authPath = path.join(home, 'auth.json');
+  if (!fs.existsSync(authPath)) return '';
+  try {
+    const auth = JSON.parse(fs.readFileSync(authPath, 'utf8'));
+    return String(auth.OPENAI_API_KEY || '').trim();
+  } catch (error) {
+    return '';
+  }
+}
+
+function postJson(url, body, headers = {}) {
+  return new Promise((resolve, reject) => {
+    const request = https.request(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers,
+      },
+    }, (response) => {
+      let raw = '';
+      response.setEncoding('utf8');
+      response.on('data', (chunk) => {
+        raw += chunk;
+      });
+      response.on('end', () => {
+        resolve({
+          statusCode: response.statusCode || 0,
+          raw,
+        });
+      });
+    });
+
+    request.on('error', reject);
+    request.setTimeout(90000, () => {
+      request.destroy(new Error('Codex API request timed out'));
+    });
+    request.write(JSON.stringify(body));
+    request.end();
+  });
+}
+
+function collectResponseText(responseJson) {
+  const parts = [];
+  const output = Array.isArray(responseJson && responseJson.output) ? responseJson.output : [];
+  for (const item of output) {
+    if (item && item.type === 'message' && Array.isArray(item.content)) {
+      for (const part of item.content) {
+        if (part && typeof part.text === 'string') {
+          parts.push(part.text);
+        }
+      }
+      continue;
+    }
+    if (item && typeof item.text === 'string') {
+      parts.push(item.text);
+    }
+  }
+  return parts.join('\n').trim();
 }
 
 function buildPrompt({ input, repoRoot, profile }) {
@@ -44,120 +107,74 @@ function buildPrompt({ input, repoRoot, profile }) {
 }
 
 async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
-  const codexBin = profile.codexBin || process.env.YANHUO_CODEX_BIN || 'codex';
-  const sandbox = profile.codexSandbox || process.env.YANHUO_CODEX_SANDBOX || 'workspace-write';
   const model = profile.codexModel || process.env.YANHUO_CODEX_MODEL || '';
-  const useBypass =
-    profile.codexBypassApprovals !== undefined
-      ? profile.codexBypassApprovals
-      : parseBoolean(process.env.YANHUO_CODEX_BYPASS_APPROVALS, false);
-
+  const baseUrl = process.env.YANHUO_CODEX_API_BASE_URL || 'https://api.modrouter.top/v1';
   const sessionId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
   const outputDir = path.join(stateRoot, 'codex', profile.name);
   const outputPath = path.join(outputDir, `${sessionId}.last-message.txt`);
   fs.mkdirSync(outputDir, { recursive: true });
 
-  const args = [
-    'exec',
-    '--cd',
-    repoRoot,
-    '--sandbox',
-    sandbox,
-    '--skip-git-repo-check',
-    '--ephemeral',
-    '--output-last-message',
-    outputPath,
-  ];
-
-  if (model) {
-    args.push('--model', model);
-  }
-
-  if (useBypass) {
-    args.push('--dangerously-bypass-approvals-and-sandbox');
-  }
-
-  if (Array.isArray(profile.codexExtraArgs)) {
-    args.push(...profile.codexExtraArgs.map(String));
-  }
-
   const prompt = buildPrompt({ input, repoRoot, profile });
-  const useScript = process.platform !== 'win32';
-  if (useScript) {
-    args.push('-');
-  } else {
-    args.push(prompt);
-  }
-  const command = [
-    quoteArg(codexBin),
-    ...args.map(quoteArg),
-  ].join(' ');
-  const execCommand = useScript ? [
-    'script',
-    '-q',
-    '-e',
-    '-c',
-    quoteArg(command),
-    '/dev/null',
-  ].join(' ') : command;
+  const requestBody = {
+    model: model || 'gpt-5.5',
+    input: [
+      {
+        role: 'user',
+        content: prompt,
+      },
+    ],
+    store: false,
+  };
+  const apiUrl = new URL('/responses', baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`);
+  const apiKey = readCodexApiKey();
+  const command = `POST ${apiUrl.toString()} [model=${requestBody.model}]`;
 
   const result = await new Promise((resolve) => {
-    const child = spawn(useScript ? 'script' : codexBin, useScript ? ['-q', '-e', '-c', command, '/dev/null'] : args, {
-      cwd: repoRoot,
-      env: {
-        ...process.env,
-      },
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
-
-    if (useScript) {
-      child.stdin.write(`${prompt}\n`);
-      child.stdin.end();
-    }
-
-    let stdout = '';
-    let stderr = '';
-
-    child.stdout.on('data', (chunk) => {
-      stdout += chunk.toString('utf8');
-      if (stdout.length > 12000) stdout = stdout.slice(-12000);
-    });
-    child.stderr.on('data', (chunk) => {
-      stderr += chunk.toString('utf8');
-      if (stderr.length > 12000) stderr = stderr.slice(-12000);
-    });
-
-    child.on('error', (error) => {
+    if (!apiKey) {
       resolve({
-        command: execCommand,
-        exitCode: -1,
-        stdout: tailText(stdout),
-        stderr: tailText(`${stderr}\n${error.stack || error.message}`),
+        command,
+        exitCode: 1,
+        stdout: '',
+        stderr: 'Codex API key not found.',
         lastMessage: '',
         outputPath,
       });
-    });
+      return;
+    }
 
-    child.on('close', (exitCode) => {
-      let lastMessage = '';
-      try {
-        if (fs.existsSync(outputPath)) {
-          lastMessage = fs.readFileSync(outputPath, 'utf8');
+    postJson(apiUrl, requestBody, {
+      Authorization: `Bearer ${apiKey}`,
+    })
+      .then(({ statusCode, raw }) => {
+        let parsed = {};
+        try {
+          parsed = raw ? JSON.parse(raw) : {};
+        } catch (error) {
+          parsed = {};
         }
-      } catch (error) {
-        lastMessage = '';
-      }
-
-      resolve({
-        command: execCommand,
-        exitCode: typeof exitCode === 'number' ? exitCode : 1,
-        stdout: tailText(stdout),
-        stderr: tailText(stderr),
-        lastMessage: tailText(lastMessage),
-        outputPath,
+        const lastMessage = collectResponseText(parsed);
+        if (lastMessage) {
+          fs.writeFileSync(outputPath, `${lastMessage}\n`);
+        }
+        resolve({
+          command,
+          exitCode: statusCode >= 200 && statusCode < 300 ? 0 : 1,
+          stdout: tailText(raw),
+          stderr: statusCode >= 200 && statusCode < 300 ? '' : tailText(raw),
+          lastMessage: tailText(lastMessage),
+          outputPath,
+        });
+      })
+      .catch((error) => {
+        resolve({
+          command,
+          exitCode: -1,
+          stdout: '',
+          stderr: tailText(error.stack || error.message),
+          lastMessage: '',
+          outputPath,
+        });
       });
-    });
-
   });
 
   return result;
