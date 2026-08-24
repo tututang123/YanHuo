@@ -32,6 +32,8 @@ YANHUO_CODEX_BIN=codex
 YANHUO_CODEX_SANDBOX=workspace-write
 ```
 
+Also make sure Codex is authenticated on the server. `codex doctor` must show a valid auth state before the bot can execute tasks.
+
 ## Start
 
 ```bash
@@ -55,3 +57,7 @@ npm install
 ```
 
 Restart the service after pulling changes.
+
+## Codex auth
+
+If the server has no Codex credentials, run `codex login` on the server or provide a supported API key env var before starting the bot.
