@@ -53,14 +53,12 @@ function loadConfig() {
       clientSecret: process.env[profile.clientSecretEnv || 'YANHUO_DINGTALK_CLIENT_SECRET'] || '',
       keepAlive: Boolean(profile.keepAlive),
       debug: Boolean(profile.debug),
-      codexBin: profile.codexBin || process.env.YANHUO_CODEX_BIN || 'codex',
-      codexSandbox: profile.codexSandbox || process.env.YANHUO_CODEX_SANDBOX || 'workspace-write',
-      codexModel: profile.codexModel || process.env.YANHUO_CODEX_MODEL || '',
+      codexBin: process.env.YANHUO_CODEX_BIN || profile.codexBin || 'codex',
+      codexSandbox: process.env.YANHUO_CODEX_SANDBOX || profile.codexSandbox || 'workspace-write',
+      codexModel: process.env.YANHUO_CODEX_MODEL || profile.codexModel || '',
       codexBypassApprovals: parseBoolean(
-        profile.codexBypassApprovals !== undefined
-          ? profile.codexBypassApprovals
-          : process.env.YANHUO_CODEX_BYPASS_APPROVALS,
-        false,
+        process.env.YANHUO_CODEX_BYPASS_APPROVALS,
+        profile.codexBypassApprovals !== undefined ? profile.codexBypassApprovals : false,
       ),
       codexExtraArgs: Array.isArray(profile.codexExtraArgs) ? profile.codexExtraArgs : [],
       allowWrite: Boolean(profile.allowWrite),

@@ -28,11 +28,30 @@ YANHUO_BOT_CONFIG=/root/yanhuo-bot/config/bots.json
 YANHUO_KNOWLEDGE_ROOT=/root/yanhuo-knowledge
 YANHUO_DINGTALK_CLIENT_ID=...
 YANHUO_DINGTALK_CLIENT_SECRET=...
-YANHUO_CODEX_BIN=codex
+YANHUO_CODEX_BIN=/root/node16/bin/codex
 YANHUO_CODEX_SANDBOX=workspace-write
 ```
 
 Also make sure Codex is authenticated on the server. `codex doctor` must show a valid auth state before the bot can execute tasks.
+
+## Codex proxy
+
+If the server uses the `modrouter` provider, write the Codex config under `~/.codex/config.toml`:
+
+```toml
+model_provider = "my_codex"
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+disable_response_storage = true
+
+[model_providers.my_codex]
+name = "my_codex"
+base_url = "https://api.modrouter.top/v1"
+wire_api = "responses"
+requires_openai_auth = true
+```
+
+Then place the OpenAI-compatible key in `~/.codex/auth.json` as `OPENAI_API_KEY`.
 
 ## Start
 

@@ -23,7 +23,7 @@ set YANHUO_BOT_CONFIG=./config/bots.json
 set YANHUO_KNOWLEDGE_ROOT=/root/yanhuo-knowledge
 set YANHUO_DINGTALK_CLIENT_ID=...
 set YANHUO_DINGTALK_CLIENT_SECRET=...
-set YANHUO_CODEX_BIN=codex
+set YANHUO_CODEX_BIN=/root/node16/bin/codex
 npm start
 ```
 
