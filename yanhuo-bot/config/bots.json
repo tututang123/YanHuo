@@ -1,0 +1,22 @@
+{
+  "repoRoot": "/root/yanhuo-knowledge",
+  "inboxFile": "knowledge/40-projects/dnf-70/04-development/bot-inbox.md",
+  "profiles": [
+    {
+      "name": "main",
+      "displayName": "yanhuo",
+      "aliases": ["yanhuo", "bot"],
+      "adapter": "dingtalk-stream",
+      "mode": "codex",
+      "clientIdEnv": "YANHUO_DINGTALK_CLIENT_ID",
+      "clientSecretEnv": "YANHUO_DINGTALK_CLIENT_SECRET",
+      "codexBin": "codex",
+      "codexSandbox": "workspace-write",
+      "codexBypassApprovals": false,
+      "keepAlive": true,
+      "debug": false,
+      "allowWrite": false,
+      "allowGitPush": false
+    }
+  ]
+}

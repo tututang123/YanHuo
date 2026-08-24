@@ -1,23 +1,47 @@
-# 架构 Architecture
+# Architecture
 
-## 当前理解
+## Current Understanding
 
-目前还没有最终确定架构。
+No final architecture has been locked yet.
 
-## 可能方向
+## Possible Directions
 
-- 只做资料归档
-- 做数据提取和规范化工具
-- 做游戏数据编辑器
-- 做 Web 知识库
-- 做本地开发服务
-- 做客户端/服务端研究环境
+- Data archive only
+- Extraction and normalization tools
+- Game data editor
+- Web knowledge base
+- Local development server
+- Client/server research environment
+- DingTalk bot platform
 
-## 组件
+## Components
 
-| 组件 | 用途 | 状态 | 备注 |
+| Component | Role | Status | Notes |
 | --- | --- | --- | --- |
-| 资料归档 | 保存和分类原始资料 | planned | 从 `00-inbox` 开始 |
-| 数据模型 | 规范化职业、技能、道具、副本 | planned | 后续定义 schema |
-| 开发工作区 | 跟踪实现工作 | planned | 使用 `04-development` |
+| Data archive | Store and classify raw source material | planned | Start from `00-inbox` |
+| Data model | Normalize jobs, skills, dungeons, gear, and tasks | planned | Define schema later |
+| Development area | Track implementation work | planned | Use `04-development` |
+| DingTalk bot platform | Expose chat commands for the knowledge repo | planned | Server-side, git-backed |
 
+## DingTalk Bot Platform
+
+The YanHuo personal DingTalk bot is a server-side command surface for the git-managed knowledge repo.
+
+### Components
+
+| Component | Role |
+| --- | --- |
+| Adapter layer | Connects a bot profile to a DingTalk runtime |
+| Codex executor | Runs the user's task against the knowledge repo |
+| Command router | Turns chat text into safe actions |
+| Repo helper | Reads status, searches docs, and writes inbox entries |
+| Profile queue | Serializes one bot profile without blocking others |
+| Config file | Stores non-secret bot settings and profile flags |
+
+### Rules
+
+- Keep `/root/yanhuo-knowledge` as the source of truth on the server.
+- Route all actions through named commands.
+- Give each bot profile its own worker and queue.
+- Send accepted messages to Codex before replying.
+- Write-enabled commands append to `knowledge/40-projects/dnf-70/04-development/bot-inbox.md`.

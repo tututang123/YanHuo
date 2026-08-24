@@ -1,28 +1,35 @@
-# 敏感信息处理 Secret Handling
+# Secret Handling
 
-服务器密码、SSH 私钥、token、数据库密码等访问凭据不能放进 Git。
+Server passwords, SSH keys, tokens, and database credentials must not be stored in git.
 
-## 本地私密位置
+## Local secret location
 
-敏感内容只放这个本地目录：
+Keep secret material here:
 
 ```text
 private/dnf-70/
 ```
 
-`private/` 已经被 `.gitignore` 忽略，不会上传 GitHub。
+`private/` is ignored by git and will not be uploaded.
 
-## 推荐文件
+## Recommended files
 
 ```text
 private/dnf-70/server-access.md
 private/dnf-70/local-paths.md
 ```
 
-## 规则
+## Rules
 
-- 不要在 `knowledge/` 里写密码。
-- 不要提交 `.pem`、`.key`、`.env` 或包含凭据的文本文件。
-- 如果密码误写进 Git 跟踪文件，提交前必须删除。
-- 如果密码已经推送到远端，立刻更换密码。
+- Do not write passwords in `knowledge/`.
+- Do not commit `.pem`, `.key`, `.env`, or any file containing credentials.
+- If a secret lands in a tracked file, remove it before committing.
+- If a secret has already been pushed, rotate it immediately.
 
+## Bot secrets
+
+- DingTalk Stream client ID/secret and any signing secrets stay in local env, not in tracked files.
+- Codex CLI auth and any local session tokens stay in local env, not in tracked files.
+- Per-profile secrets belong in `private/dnf-70/` or runtime env.
+- The bot config file may name env vars, but must not contain token values.
+- Do not store cookies, QR sessions, login secrets, or callback secrets in the knowledge repo.

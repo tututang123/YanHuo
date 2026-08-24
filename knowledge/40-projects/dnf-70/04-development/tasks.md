@@ -1,29 +1,38 @@
-# 任务 Tasks
+# Tasks
 
-## 待办 Backlog
+## Backlog
 
-- [ ] 把所有 DNF 70 原始资料加入 `00-inbox`。
-- [ ] 补全 `01-references/source-inventory.md`。
-- [ ] 在 `01-references/version-notes.md` 明确版本边界。
-- [ ] 列出所有已知职业和职业状态。
-- [ ] 列出当前版本核心副本。
-- [ ] 明确本项目是资料库、工具项目，还是开发项目。
-- [ ] 阅读并记录 `D:\log20220802\moveLogFile.py` 的作用。
-- [ ] 阅读并记录 `D:\log20220802\checktgjlAll.py.py` 的输入输出格式。
-- [x] 把手动日志排查流程改造成可参数化流程。
-- [ ] 建立标准异常通关记录报告格式。
-- [ ] 把敏感服务器访问资料移动到 `private/dnf-70`。
+- [ ] Put all raw DNF 70 source material into `00-inbox`.
+- [ ] Fill in `01-references/source-inventory.md`.
+- [ ] Clarify the version boundary in `01-references/version-notes.md`.
+- [ ] List all known classes and class states.
+- [ ] List the current core dungeons.
+- [ ] Decide whether this project is a data archive, tool project, or full dev project.
+- [ ] Review the legacy helper scripts in `D:\log20220802\moveLogFile.py`.
+- [ ] Review the input/output format of `D:\log20220802\checktgjlAll.py.py`.
+- [x] Make dungeon log review parameterized.
+- [ ] Define a standard abnormal-clear report format.
+- [ ] Move sensitive server access data into `private/dnf-70`.
 
-## 进行中 Doing
+## Doing
 
-- [ ] 维护初始项目工作区。
-- [ ] 记录当前日志排查流程。
-- [ ] 复核第一次一键工具报告里的可疑 UID。
+- [ ] Maintain the initial project workspace.
+- [ ] Record the current log review flow.
+- [ ] Recheck suspicious UIDs from the first one-click report.
+- [ ] Finish the personal DingTalk bot platform scaffold.
 
-## 已完成 Done
+## Bot Work
 
-- [x] 创建项目目录结构。
-- [x] 添加基础项目文档和模板。
-- [x] 添加敏感信息处理规则。
-- [x] 创建本地一键 DNF 日志排查工具。
+- [ ] Finalize the first personal DingTalk adapter runtime.
+- [ ] Connect the first bot profile to `/root/yanhuo-knowledge`.
+- [ ] Keep bot writes flowing into `bot-inbox.md` before any commit/push step.
+- [ ] Add a second bot profile only after the first one is stable.
+- [ ] Route accepted DingTalk messages through Codex on the server.
 
+## Done
+
+- [x] Create the project directory structure.
+- [x] Add the base project docs and templates.
+- [x] Add the sensitive info handling rules.
+- [x] Create the local one-click DNF log review tool.
+- [x] Add the YanHuo personal WeChat bot planning draft.
