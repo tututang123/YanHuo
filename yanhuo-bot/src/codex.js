@@ -90,13 +90,15 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
   const useScript = process.platform !== 'win32';
   const execCommand = useScript ? [
     'script',
-    '-qec',
+    '-q',
+    '-e',
+    '-c',
     quoteArg(command),
     '/dev/null',
   ].join(' ') : command;
 
   const result = await new Promise((resolve) => {
-    const child = spawn(useScript ? 'script' : codexBin, useScript ? ['-qec', command, '/dev/null'] : args, {
+    const child = spawn(useScript ? 'script' : codexBin, useScript ? ['-q', '-e', '-c', command, '/dev/null'] : args, {
       cwd: repoRoot,
       env: {
         ...process.env,
