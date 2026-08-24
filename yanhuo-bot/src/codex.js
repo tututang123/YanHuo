@@ -82,12 +82,16 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
   }
 
   const prompt = buildPrompt({ input, repoRoot, profile });
-  args.push(prompt);
+  const useScript = process.platform !== 'win32';
+  if (useScript) {
+    args.push('-');
+  } else {
+    args.push(prompt);
+  }
   const command = [
     quoteArg(codexBin),
     ...args.map(quoteArg),
   ].join(' ');
-  const useScript = process.platform !== 'win32';
   const execCommand = useScript ? [
     'script',
     '-q',
@@ -103,8 +107,13 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
       env: {
         ...process.env,
       },
-      stdio: ['ignore', 'pipe', 'pipe'],
+      stdio: ['pipe', 'pipe', 'pipe'],
     });
+
+    if (useScript) {
+      child.stdin.write(`${prompt}\n`);
+      child.stdin.end();
+    }
 
     let stdout = '';
     let stderr = '';
