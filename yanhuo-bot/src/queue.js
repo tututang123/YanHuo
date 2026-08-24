@@ -25,6 +25,15 @@ class DurableQueue {
     return entries;
   }
 
+  getLatestEntries() {
+    const latestById = new Map();
+    for (const entry of this.readEntries()) {
+      if (!entry || !entry.id) continue;
+      latestById.set(entry.id, entry);
+    }
+    return [...latestById.values()];
+  }
+
   append(entry) {
     fs.appendFileSync(this.journalPath, `${JSON.stringify(entry)}\n`, 'utf8');
   }
@@ -69,7 +78,7 @@ class DurableQueue {
   }
 
   async replayPending(taskFactory) {
-    const entries = this.readEntries();
+    const entries = this.getLatestEntries();
     for (const entry of entries) {
       if (entry.status !== 'pending') continue;
       await this.push(async () => {
