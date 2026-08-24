@@ -125,7 +125,7 @@ async function runCodexTask({ input, repoRoot, profile, stateRoot }) {
     ],
     store: false,
   };
-  const apiUrl = new URL('/responses', baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`);
+  const apiUrl = new URL('responses', baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`);
   const apiKey = readCodexApiKey();
   const command = `POST ${apiUrl.toString()} [model=${requestBody.model}]`;
 
