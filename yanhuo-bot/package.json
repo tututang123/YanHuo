@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node src/index.js",
     "cli": "node src/cli.js",
-    "check": "node --check src/index.js && node --check src/cli.js && node --check src/config.js && node --check src/codex.js && node --check src/queue.js && node --check src/repo.js && node --check src/router.js && node --check src/platform.js && node --check src/adapters/dingtalk.js"
+    "check": "node --check src/index.js && node --check src/cli.js && node --check src/config.js && node --check src/codex.js && node --check src/queue.js && node --check src/repo.js && node --check src/router.js && node --check src/platform.js && node --check src/ops.js && node --check src/adapters/dingtalk.js"
   },
   "dependencies": {
     "dingtalk-stream": "^2.1.6-beta.1",
