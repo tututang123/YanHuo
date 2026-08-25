@@ -33,3 +33,10 @@ private/dnf-70/local-paths.md
 - Per-profile secrets belong in `private/dnf-70/` or runtime env.
 - The bot config file may name env vars, but must not contain token values.
 - Do not store cookies, QR sessions, login secrets, or callback secrets in the knowledge repo.
+
+## AionUi secrets
+
+- AionUi DingTalk credentials stay in `/root/private/dnf-70/aionui.env` on the server.
+- OpenRouter, ModRouter, OpenAI-compatible, Anthropic, Codex, and Claude Code keys stay outside git.
+- `aionui.env.example` may be tracked because it contains names and placeholders only.
+- Backups of `/root/.config/AionUi` must be treated as sensitive until inspected.
