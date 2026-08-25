@@ -34,16 +34,27 @@ class DurableQueue {
     return [...latestById.values()];
   }
 
+  hasRecentDedupeKey(dedupeKey) {
+    if (!dedupeKey) return false;
+    return this.getLatestEntries().some((entry) => entry && entry.dedupeKey === dedupeKey);
+  }
+
   append(entry) {
     fs.appendFileSync(this.journalPath, `${JSON.stringify(entry)}\n`, 'utf8');
   }
 
-  enqueue(payload, task) {
+  enqueue(payload, task, options = {}) {
+    const dedupeKey = options.dedupeKey || payload.messageId || '';
+    if (dedupeKey && this.hasRecentDedupeKey(dedupeKey)) {
+      return Promise.resolve('');
+    }
+
     const id = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
     const pending = {
       id,
       status: 'pending',
       profile: this.profileName,
+      dedupeKey,
       createdAt: new Date().toISOString(),
       payload,
     };
@@ -55,6 +66,7 @@ class DurableQueue {
           id,
           status: 'done',
           profile: this.profileName,
+          dedupeKey,
           completedAt: new Date().toISOString(),
         });
         return result;
@@ -63,6 +75,7 @@ class DurableQueue {
           id,
           status: 'error',
           profile: this.profileName,
+          dedupeKey,
           completedAt: new Date().toISOString(),
           error: error && error.message ? error.message : String(error),
         });
@@ -88,6 +101,7 @@ class DurableQueue {
             id: entry.id,
             status: 'done',
             profile: this.profileName,
+            dedupeKey: entry.dedupeKey || '',
             completedAt: new Date().toISOString(),
           });
           return result;
@@ -96,6 +110,7 @@ class DurableQueue {
             id: entry.id,
             status: 'error',
             profile: this.profileName,
+            dedupeKey: entry.dedupeKey || '',
             completedAt: new Date().toISOString(),
             error: error && error.message ? error.message : String(error),
           });

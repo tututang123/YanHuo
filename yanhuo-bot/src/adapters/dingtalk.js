@@ -157,10 +157,16 @@ async function handleDingTalkMessage({ body, profile, queue, router, accessToken
   const text = normalizeIncomingText(body, profile);
   if (!text) return '';
 
+  const messageId =
+    (body && (body.msgId || body.messageId || body.id)) ||
+    (body && body.headers && (body.headers.messageId || body.headers.id)) ||
+    '';
+
   const payload = {
     text,
     sender: getSender(body),
     source: getConversationSource(body),
+    messageId,
   };
 
   console.log(
@@ -168,13 +174,16 @@ async function handleDingTalkMessage({ body, profile, queue, router, accessToken
       payload.text,
     )}`,
   );
-  const reply = await queue.enqueue(payload, () => router(payload));
+  const reply = await queue.enqueue(
+    payload,
+    () => router(payload),
+    {
+      dedupeKey: messageId,
+    },
+  );
   console.log(`[${profile.name}] reply: ${reply ? JSON.stringify(reply) : 'empty'}`);
   if (reply) {
     await replyToSessionWebhook(body, reply, accessToken);
-  }
-  if (client && body && body.msgId) {
-    client.socketCallBackResponse(body.msgId, { success: true });
   }
   return reply;
 }
@@ -210,13 +219,21 @@ async function startDingTalkProfile({ profile, queue, router }) {
         return;
       }
 
+      const callbackMessageId =
+        (body && (body.msgId || body.messageId || body.id)) ||
+        (message && message.headers && message.headers.messageId) ||
+        '';
+
+      if (callbackMessageId) {
+        client.socketCallBackResponse(callbackMessageId, { success: true });
+      }
+
       await handleDingTalkMessage({
         body,
         profile,
         queue,
         router,
         accessToken,
-        client,
       });
     } catch (err) {
       console.error(`[${profile.name}] dingtalk stream error: ${err.stack || err.message}`);
