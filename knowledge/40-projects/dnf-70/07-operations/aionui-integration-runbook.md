@@ -243,6 +243,20 @@ Settings -> WebUI -> Channels -> Add Channel -> DingTalk
 
 Fill in the DingTalk credentials from `/root/private/dnf-70/aionui.env`.
 
+## Known DingTalk UI Fix
+
+The AionUi DingTalk settings page originally hid `Pending Pairing Requests` whenever `Authorized Users` already existed.
+That made it look like new users disappeared after the first approval.
+
+Fix applied in the local AionUi source:
+
+- File: `packages/desktop/src/renderer/components/settings/SettingsModal/contents/channels/DingTalkConfigForm.tsx`
+- Change: render `Pending Pairing Requests` and `Authorized Users` as two independent sections
+- Before: pending pairing section required `authorizedUsers.length === 0`
+- After: both sections show whenever the DingTalk plugin is enabled
+
+If the environment is rebuilt from source, re-apply this change before testing multi-user DingTalk approval.
+
 ## Cutover Plan
 
 Phase 1: Parallel test.
