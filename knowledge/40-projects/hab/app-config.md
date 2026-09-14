@@ -89,3 +89,20 @@ aws s3 cp hab s3://handigame-client2/hab --acl public-read --recursive --profile
 - HABPartners 使用 `partners` / `exagent` 相关域名和 H5 路径。
 - HABet 的部分活动页标注为 HABPartners 不需要，不要误用到 partners 包。
 - `nsoft/index.html` 原始资料中的 Markdown 链接混乱，当前按推测地址记录，使用前需要再次确认。
+
+## HABPartners 发版重要链接
+
+记录时间：2026-08-19
+
+### Web / PWA 访问地址
+
+- 网页版期望访问地址：`https://d2y5tedycszpy3.cloudfront.net/hapartners/hapartners_pwa/index.html`
+- 带包名参数访问地址：`https://d2y5tedycszpy3.cloudfront.net/hapartners/hapartners_pwa/index.html?pkg=com.hapartners.app.online.web`
+
+### Release 访问地址
+
+- 期望访问地址：`https://d2y5tedycszpy3.cloudfront.net/hapartners/hapartners_release/index.html`
+
+### 发版提醒
+
+- HAPartners Web / PWA / release 发版后，需要刷新 CDN。
