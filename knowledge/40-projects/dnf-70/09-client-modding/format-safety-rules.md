@@ -51,3 +51,8 @@ private/dnf-70/client-workspace/pvf-import-ready  # 准备导入 PVF Utility 的
 
 先停下来检查文件。优先使用“保留字节”的方式或精准替换，不要整文件重写。
 
+schtasks /query /tn "DNF数据库自动备份" /v /fo list
+
+schtasks /delete /tn "DNF数据库自动备份" /f
+
+schtasks /create /tn "DNF数据库自动备份" /tr "py E:\dnf\yanhuo70\backup.py" /sc minute /mo 30 /f
