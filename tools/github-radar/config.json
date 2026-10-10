@@ -1,0 +1,16 @@
+{
+  "sourceUrl": "https://raw.githubusercontent.com/jastfan/github-trending/main/data/latest.json",
+  "knowledgeOutputDir": "../../knowledge/50-resources/github-radar",
+  "minStarsToday": 50,
+  "topLimit": 30,
+  "spotlightLimit": 12,
+  "enrichLimit": 30,
+  "categories": [
+    "Overall Trending",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Go",
+    "Rust"
+  ]
+}
