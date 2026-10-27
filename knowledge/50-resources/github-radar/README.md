@@ -4,17 +4,17 @@
 
 ## 当前入口
 
-- 最新报告：reports/2026-10-10.md
+- 最新报告：reports/2026-10-26.md
 - 最新原始数据：latest.json
-- 当日归档：history/2026-10-10.json
+- 当日归档：history/2026-10-26.json
 
 ## 当前 Top 5
 
-1. 🤖 [morluto/rea](https://github.com/morluto/rea)：Reverse engineer anything with agents, from app behavior down to native binaries.（+14,927 stars today）
-2. 🧰 [boykopovar/AnyPS5](https://github.com/boykopovar/AnyPS5)：Tool for automatic PS5 executables porting to Linux and Windows（+5,868 stars today）
-3. 🧠 [storytold/artcraft](https://github.com/storytold/artcraft)：ArtCraft is an intentional crafting engine for artists, designers, and filmmakers（+3,752 stars today）
-4. 🤖 [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)：Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 44 diagram types. Self-contai...（+1,739 stars today）
-5. 🤖 [mattpocock/skills](https://github.com/mattpocock/skills)：Skills for Real Engineers. Straight from my .agents directory.（+1,687 stars today）
+1. 🧠 [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio)：VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dict...（+2,292 stars today）
+2. 🤖 [Nutlope/hallmark](https://github.com/Nutlope/hallmark)：Anti-AI-slop design skill for Claude Code, Cursor, and Codex.（+2,235 stars today）
+3. 🤖 [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)：A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings（+2,069 stars today）
+4. 🧠 [pbakaus/impeccable](https://github.com/pbakaus/impeccable)：The design language that makes your AI harness better at design.（+1,551 stars today）
+5. 🤖 [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)：Universal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, ...（+1,539 stars today）
 
 ## 运行方式
 
